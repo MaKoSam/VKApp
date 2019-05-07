@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="450" id="KGk-i7-Jjw" customClass="NewsPostTableViewCell" customModule="UI_Home_Application" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="455.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAe-I5-wvO" customClass="NewsPrivatePhotoView" customModule="UI_Home_Application" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="aKH-Tx-hdS"/>
+                            <constraint firstAttribute="height" constant="40" id="ra3-iF-rj1"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Firend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNq-oY-d2U">
+                        <rect key="frame" x="50" y="5" width="265" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="5LY-6b-kch"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a very important post, I have been seeking to share with you today..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3a-WQ-3y2">
+                        <rect key="frame" x="5" y="370" width="310" height="40.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPH-yK-Nwz" customClass="audienceActivity" customModule="UI_Home_Application" customModuleProvider="target">
+                        <rect key="frame" x="5" y="430.5" width="110" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="qeZ-hM-37E"/>
+                            <constraint firstAttribute="width" constant="110" id="wYh-JP-GoI"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZHB-K8-RXY">
+                        <rect key="frame" x="5" y="50" width="310" height="310"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="310" id="GBU-oV-52N"/>
+                            <constraint firstAttribute="height" constant="310" id="nvB-YF-ZeQ"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="j3a-WQ-3y2" firstAttribute="top" secondItem="ZHB-K8-RXY" secondAttribute="bottom" constant="10" id="0m3-Lz-NTJ"/>
+                    <constraint firstItem="j3a-WQ-3y2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="4f1-6r-OEh"/>
+                    <constraint firstAttribute="trailing" secondItem="VNq-oY-d2U" secondAttribute="trailing" constant="5" id="6SB-qj-p6d"/>
+                    <constraint firstItem="ZPH-yK-Nwz" firstAttribute="top" secondItem="j3a-WQ-3y2" secondAttribute="bottom" constant="20" id="GRE-wy-dgq"/>
+                    <constraint firstItem="FAe-I5-wvO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="HWo-Oe-8Ed"/>
+                    <constraint firstItem="FAe-I5-wvO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="MgV-8r-anS"/>
+                    <constraint firstAttribute="bottom" secondItem="ZPH-yK-Nwz" secondAttribute="bottom" constant="5" id="QRh-bI-bp9"/>
+                    <constraint firstItem="ZHB-K8-RXY" firstAttribute="top" secondItem="FAe-I5-wvO" secondAttribute="bottom" constant="5" id="V4b-6t-Sgp"/>
+                    <constraint firstAttribute="trailing" secondItem="j3a-WQ-3y2" secondAttribute="trailing" constant="5" id="X9c-9p-TTn"/>
+                    <constraint firstItem="ZHB-K8-RXY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="bEY-0d-nao"/>
+                    <constraint firstItem="ZPH-yK-Nwz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="bdP-6U-Zi3"/>
+                    <constraint firstItem="VNq-oY-d2U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="v9E-jb-8B5"/>
+                    <constraint firstItem="VNq-oY-d2U" firstAttribute="leading" secondItem="FAe-I5-wvO" secondAttribute="trailing" constant="5" id="wFb-m0-7oa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newsPostLikeControl" destination="ZPH-yK-Nwz" id="kQy-Qg-Czx"/>
+                <outlet property="postPhoto" destination="ZHB-K8-RXY" id="8NO-OA-EBf"/>
+                <outlet property="privatePersonName" destination="VNq-oY-d2U" id="qAR-nG-Wng"/>
+                <outlet property="privatePersonPhoto" destination="FAe-I5-wvO" id="uUe-WR-wBe"/>
+            </connections>
+            <point key="canvasLocation" x="-147.19999999999999" y="166.41679160419793"/>
+        </tableViewCell>
+    </objects>
+</document>
