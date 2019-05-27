@@ -7,8 +7,27 @@
 //
 
 import UIKit
+import Foundation
+import Alamofire
 
 var friends = FriendData()
+
+
+private class NetworkManager {
+    private var sessionManager = Alamofire.SessionManager.default
+    
+    init (){
+        let parameters: Parameters = [
+            "v": "5.52",
+            "access_token": Session.instance.token
+        ]
+        
+        sessionManager.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON {
+            response in
+            print(response.value)
+        }
+    }
+}
 
 
 class FriendListViewController: UIViewController {
@@ -19,8 +38,15 @@ class FriendListViewController: UIViewController {
     
     var filteredFriends = FriendData()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        NetworkManager.init() //Request the list of friends with Alamofire
+        
+        
         FriendTable.dataSource = self
         filteredFriends.nilData()
         

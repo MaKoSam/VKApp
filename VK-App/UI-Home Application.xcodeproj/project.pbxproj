@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045F7248229BD8EB00AF8B07 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F7247229BD8EB00AF8B07 /* WKLoginViewController.swift */; };
+		045F724A229BEBCB00AF8B07 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F7249229BEBCB00AF8B07 /* WebKit.framework */; };
+		107784D11CD9763124A674F2 /* Pods_UI_Home_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94412213DDAD6111530680E4 /* Pods_UI_Home_Application.framework */; };
 		8B0959672243C31000CABE05 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0959662243C31000CABE05 /* NewsViewController.swift */; };
 		8B09596B2243C46200CABE05 /* NewsPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0959692243C46200CABE05 /* NewsPostTableViewCell.swift */; };
 		8B09596C2243C46200CABE05 /* NewsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B09596A2243C46200CABE05 /* NewsPostTableViewCell.xib */; };
@@ -34,10 +37,7 @@
 		DB87C0542234F4C80092E26F /* friend3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB87C0532234F4C80092E26F /* friend3.jpg */; };
 		DB87C0562234F4DA0092E26F /* friend4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB87C0552234F4DA0092E26F /* friend4.jpg */; };
 		DB87C0582234F4EF0092E26F /* friend6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB87C0572234F4EE0092E26F /* friend6.jpg */; };
-		DB87C05D2234FC510092E26F /* PersonalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C05C2234FC510092E26F /* PersonalPageViewController.swift */; };
-		DB87C05F223500660092E26F /* PersonPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C05E223500660092E26F /* PersonPostViewCell.swift */; };
 		DB87C064223610060092E26F /* CommunityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C063223610060092E26F /* CommunityListViewController.swift */; };
-		DB87C0662236102B0092E26F /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C0652236102B0092E26F /* CommunityTableViewCell.swift */; };
 		DB87C068223611270092E26F /* AllCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C067223611270092E26F /* AllCommunityViewController.swift */; };
 		DB87C06A22361F770092E26F /* AllCommuityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C06922361F770092E26F /* AllCommuityTableViewCell.swift */; };
 		DBB263DA2240BD7400D864CD /* FriendTableBarPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB263D92240BD7400D864CD /* FriendTableBarPhoto.swift */; };
@@ -45,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045F7247229BD8EB00AF8B07 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
+		045F7249229BEBCB00AF8B07 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8B0959662243C31000CABE05 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8B0959692243C46200CABE05 /* NewsPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPostTableViewCell.swift; sourceTree = "<group>"; };
 		8B09596A2243C46200CABE05 /* NewsPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsPostTableViewCell.xib; sourceTree = "<group>"; };
@@ -59,6 +61,9 @@
 		8BB3576B222CCED700B7792A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BB3576D222CCED700B7792A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BB35773222CD10200B7792A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94412213DDAD6111530680E4 /* Pods_UI_Home_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI_Home_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB269C489B99347870A51C4F /* Pods-UI-Home Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI-Home Application.release.xcconfig"; path = "Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application.release.xcconfig"; sourceTree = "<group>"; };
+		BF2B26D41BB222F1497C244A /* Pods-UI-Home Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI-Home Application.debug.xcconfig"; path = "Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application.debug.xcconfig"; sourceTree = "<group>"; };
 		DB1E923A22815938005B34F5 /* HeadPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadPageView.swift; sourceTree = "<group>"; };
 		DB1E923C22815942005B34F5 /* UpdatedPersonalPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedPersonalPageViewController.swift; sourceTree = "<group>"; };
 		DB7A7EB822410FE200327637 /* aLike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aLike.png; sourceTree = "<group>"; };
@@ -74,10 +79,7 @@
 		DB87C0532234F4C80092E26F /* friend3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = friend3.jpg; sourceTree = "<group>"; };
 		DB87C0552234F4DA0092E26F /* friend4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = friend4.jpg; sourceTree = "<group>"; };
 		DB87C0572234F4EE0092E26F /* friend6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = friend6.jpg; sourceTree = "<group>"; };
-		DB87C05C2234FC510092E26F /* PersonalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageViewController.swift; sourceTree = "<group>"; };
-		DB87C05E223500660092E26F /* PersonPostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonPostViewCell.swift; sourceTree = "<group>"; };
 		DB87C063223610060092E26F /* CommunityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewController.swift; sourceTree = "<group>"; };
-		DB87C0652236102B0092E26F /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		DB87C067223611270092E26F /* AllCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunityViewController.swift; sourceTree = "<group>"; };
 		DB87C06922361F770092E26F /* AllCommuityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommuityTableViewCell.swift; sourceTree = "<group>"; };
 		DBB263D92240BD7400D864CD /* FriendTableBarPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableBarPhoto.swift; sourceTree = "<group>"; };
@@ -89,12 +91,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045F724A229BEBCB00AF8B07 /* WebKit.framework in Frameworks */,
+				107784D11CD9763124A674F2 /* Pods_UI_Home_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C8A3D28504045CA8D02F910 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF2B26D41BB222F1497C244A /* Pods-UI-Home Application.debug.xcconfig */,
+				AB269C489B99347870A51C4F /* Pods-UI-Home Application.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8B0959682243C41C00CABE05 /* News Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +142,8 @@
 			children = (
 				8BB35760222CCED500B7792A /* UI-Home Application */,
 				8BB3575F222CCED500B7792A /* Products */,
+				6C8A3D28504045CA8D02F910 /* Pods */,
+				B04952AE3E7107D8BDA8C489 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +166,7 @@
 				8BB3576D222CCED700B7792A /* Info.plist */,
 				8B26BB1622452EA400B08579 /* ImportantStructures.swift */,
 				DBB263DB2240C23A00D864CD /* AudienceActivityView.swift */,
+				045F7247229BD8EB00AF8B07 /* WKLoginViewController.swift */,
 				8B0959682243C41C00CABE05 /* News Page */,
 				DB87C06022360F960092E26F /* Community Page */,
 				DB87C05B2234FC020092E26F /* Personal Page */,
@@ -160,13 +176,13 @@
 			path = "UI-Home Application";
 			sourceTree = "<group>";
 		};
-		DB1E923E2281595B005B34F5 /* Old Personal Page */ = {
+		B04952AE3E7107D8BDA8C489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DB87C05C2234FC510092E26F /* PersonalPageViewController.swift */,
-				DB87C05E223500660092E26F /* PersonPostViewCell.swift */,
+				045F7249229BEBCB00AF8B07 /* WebKit.framework */,
+				94412213DDAD6111530680E4 /* Pods_UI_Home_Application.framework */,
 			);
-			path = "Old Personal Page";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DB87C0432234E2E60092E26F /* Friend Table */ = {
@@ -185,7 +201,6 @@
 			children = (
 				DB1E923A22815938005B34F5 /* HeadPageView.swift */,
 				DB1E923C22815942005B34F5 /* UpdatedPersonalPageViewController.swift */,
-				DB1E923E2281595B005B34F5 /* Old Personal Page */,
 				8B600DED223FDAF50016DDFC /* ProfilePhotoView.swift */,
 			);
 			name = "Personal Page";
@@ -195,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				DB87C063223610060092E26F /* CommunityListViewController.swift */,
-				DB87C0652236102B0092E26F /* CommunityTableViewCell.swift */,
 				DB87C067223611270092E26F /* AllCommunityViewController.swift */,
 				DB87C06922361F770092E26F /* AllCommuityTableViewCell.swift */,
 			);
@@ -209,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BB35770222CCED700B7792A /* Build configuration list for PBXNativeTarget "UI-Home Application" */;
 			buildPhases = (
+				5E06E99360B0680551A37623 /* [CP] Check Pods Manifest.lock */,
 				8BB3575A222CCED500B7792A /* Sources */,
 				8BB3575B222CCED500B7792A /* Frameworks */,
 				8BB3575C222CCED500B7792A /* Resources */,
+				CE072BE9D82F01B0910EF94A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,6 +296,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E06E99360B0680551A37623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UI-Home Application-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE072BE9D82F01B0910EF94A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8BB3575A222CCED500B7792A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -290,8 +348,8 @@
 				DB87C068223611270092E26F /* AllCommunityViewController.swift in Sources */,
 				8B0959672243C31000CABE05 /* NewsViewController.swift in Sources */,
 				DBB263DA2240BD7400D864CD /* FriendTableBarPhoto.swift in Sources */,
-				DB87C05F223500660092E26F /* PersonPostViewCell.swift in Sources */,
 				DB1E923D22815942005B34F5 /* UpdatedPersonalPageViewController.swift in Sources */,
+				045F7248229BD8EB00AF8B07 /* WKLoginViewController.swift in Sources */,
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
 				8B600DEE223FDAF50016DDFC /* ProfilePhotoView.swift in Sources */,
 				8B26BB152244EE1100B08579 /* FriendsSectionHeader.swift in Sources */,
@@ -300,9 +358,7 @@
 				DB87C0492234E9E00092E26F /* FriendTableViewCell.swift in Sources */,
 				8B09596E2243C9AD00CABE05 /* NewsPostPrivatePhotoView.swift in Sources */,
 				8B09596B2243C46200CABE05 /* NewsPostTableViewCell.swift in Sources */,
-				DB87C05D2234FC510092E26F /* PersonalPageViewController.swift in Sources */,
 				DB87C06A22361F770092E26F /* AllCommuityTableViewCell.swift in Sources */,
-				DB87C0662236102B0092E26F /* CommunityTableViewCell.swift in Sources */,
 				8B26BB1722452EA400B08579 /* ImportantStructures.swift in Sources */,
 				DB1E923B22815938005B34F5 /* HeadPageView.swift in Sources */,
 			);
@@ -448,6 +504,7 @@
 		};
 		8BB35771222CCED700B7792A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2B26D41BB222F1497C244A /* Pods-UI-Home Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -468,6 +525,7 @@
 		};
 		8BB35772222CCED700B7792A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB269C489B99347870A51C4F /* Pods-UI-Home Application.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

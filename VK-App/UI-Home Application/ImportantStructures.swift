@@ -20,7 +20,8 @@ class Session {
     }
     
     var token: String = "Not Initialized"
-    var userId: Int = 404
+    var userID: Int = 404
+    var applicationID: String = "6995401"
     
 }
 
