@@ -13,17 +13,6 @@ struct Person{
     var photo : UIImage
 }
 
-class Session {
-    static let instance = Session()
-    
-    private init(){
-    }
-    
-    var token: String = "Not Initialized"
-    var userId: Int = 404
-    
-}
-
 
 struct FriendData {
     var privateUserData = [
