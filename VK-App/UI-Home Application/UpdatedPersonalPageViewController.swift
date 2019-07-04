@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 private var serverAnswer = [
     User(first_name: "None", last_name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
@@ -35,10 +36,36 @@ class PersonalPageViewController: UIViewController {
     ]
     
     
+    private class NetworkSession {
+        static let custom: Alamofire.Session = {
+            let configuration = URLSessionConfiguration.default
+            let sessionManager = Alamofire.Session(configuration: configuration)
+            return sessionManager
+        }()
+    }
+    
+    private func downloadUserData(){
+        let parameters: Parameters = [
+            "fields": "status,city,photo_50",
+            "access_token": Session.instance.app_token!,
+            "v": "5.101"
+        ]
+        
+        NetworkSession.custom.request("https://api.vk.com/method/users.get", parameters: parameters).responseJSON {
+            response in
+            
+            print(response.value)
+        }
+    }
+
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        downloadUserData()
         
         headPageView.image = personData.photo
         headPageView.name = personData.last_name

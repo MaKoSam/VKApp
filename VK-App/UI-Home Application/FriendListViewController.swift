@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 private var serverAnswer = [
     User(first_name: "None", last_name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
@@ -19,6 +20,27 @@ private var serverAnswer = [
 
 var friends = FriendList(serverAnswer)
 
+private class NetworkSession {
+    static let custom: Alamofire.Session = {
+        let configuration = URLSessionConfiguration.default
+        let sessionManager = Alamofire.Session(configuration: configuration)
+        return sessionManager
+    }()
+}
+
+private func downloadFriendList(){
+    let parameters: Parameters = [
+        "access_token": Session.instance.app_token!,
+        "v": "5.101"
+    ]
+    
+    NetworkSession.custom.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON {
+        response in
+        print(response.value)
+    }
+}
+
+
 
 class FriendListViewController: UIViewController {
     
@@ -29,6 +51,9 @@ class FriendListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       downloadFriendList()
+        
         FriendTable.dataSource = self
         
 //        filteredFriends.nilData()
@@ -80,42 +105,42 @@ class FriendListViewController: UIViewController {
 
 
 extension FriendListViewController : UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
 //        if isFiltering() {
 //            return filteredFriends.tableLitterals.count
 //        }
         return friends.headers.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        if isFiltering() {
 //            return filteredFriends.tableLitterals[section]
 //        }
         return friends.headers[section]
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        if isFiltering() {
 //            return filteredFriends.publicUserData[filteredFriends.tableLitterals[section]]!.count
 //        }
         return friends.orderedList[ friends.headers[section] ]!.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = FriendTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
-        
+
         var currentSection = friends.orderedList[friends.headers[indexPath.section]]!
-        
+
 //        if isFiltering() {
 //            currentSection = filteredFriends.publicUserData[filteredFriends.tableLitterals[indexPath.section]]!
 //        }
-        
+
         newCell.friendName.text = currentSection[indexPath.row].last_name
 //        newCell.friendPhotoContentView.image = currentSection[indexPath.row].photo
         return newCell
     }
-    
+
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "toPerson"{
 //            let indexPath = self.FriendTable.indexPathForSelectedRow!
@@ -125,5 +150,5 @@ extension FriendListViewController : UITableViewDataSource {
 //            }
 //        }
 //    }
-    
+
 }
