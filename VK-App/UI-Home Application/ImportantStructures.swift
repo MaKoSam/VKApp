@@ -17,6 +17,7 @@ struct User {
 class Session {
     static let instance = Session()
     private init(){ }
+    var client_id = "6995401"
     
     var app_token: String?
     var user_id: Int?
