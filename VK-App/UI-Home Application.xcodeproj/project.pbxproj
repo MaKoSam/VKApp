@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0410DF3322D32D9B0036445B /* ServerSessionConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */; };
 		04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB20E222CDE09900618D22 /* WKLoginViewController.swift */; };
 		04AB20E522CDE47300618D22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AB20E422CDE47300618D22 /* WebKit.framework */; };
 		2AA3E4BBC49CEA846AAF228E /* Pods_UI_Home_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4235CDA4BAFC7C7773E3510 /* Pods_UI_Home_Application.framework */; };
@@ -15,7 +16,7 @@
 		8B09596C2243C46200CABE05 /* NewsPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B09596A2243C46200CABE05 /* NewsPostTableViewCell.xib */; };
 		8B09596E2243C9AD00CABE05 /* NewsPostPrivatePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B09596D2243C9AD00CABE05 /* NewsPostPrivatePhotoView.swift */; };
 		8B26BB152244EE1100B08579 /* FriendsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26BB142244EE1100B08579 /* FriendsSectionHeader.swift */; };
-		8B26BB1722452EA400B08579 /* ImportantStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26BB1622452EA400B08579 /* ImportantStructures.swift */; };
+		8B26BB1722452EA400B08579 /* MainClassStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26BB1622452EA400B08579 /* MainClassStructures.swift */; };
 		8B600DEE223FDAF50016DDFC /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B600DED223FDAF50016DDFC /* ProfilePhotoView.swift */; };
 		8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB35761222CCED500B7792A /* AppDelegate.swift */; };
 		8BB35767222CCED500B7792A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BB35765222CCED500B7792A /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSessionConnections.swift; sourceTree = "<group>"; };
 		04AB20E222CDE09900618D22 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		04AB20E422CDE47300618D22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		22D041657188665502643C9B /* Pods-UI-Home Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI-Home Application.release.xcconfig"; path = "Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		8B09596A2243C46200CABE05 /* NewsPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsPostTableViewCell.xib; sourceTree = "<group>"; };
 		8B09596D2243C9AD00CABE05 /* NewsPostPrivatePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPostPrivatePhotoView.swift; sourceTree = "<group>"; };
 		8B26BB142244EE1100B08579 /* FriendsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSectionHeader.swift; sourceTree = "<group>"; };
-		8B26BB1622452EA400B08579 /* ImportantStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantStructures.swift; sourceTree = "<group>"; };
+		8B26BB1622452EA400B08579 /* MainClassStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClassStructures.swift; sourceTree = "<group>"; };
 		8B600DED223FDAF50016DDFC /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
 		8BB3575E222CCED500B7792A /* UI-Home Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI-Home Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BB35761222CCED500B7792A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +157,8 @@
 				8BB35768222CCED700B7792A /* Assets.xcassets */,
 				8BB3576A222CCED700B7792A /* LaunchScreen.storyboard */,
 				8BB3576D222CCED700B7792A /* Info.plist */,
-				8B26BB1622452EA400B08579 /* ImportantStructures.swift */,
+				8B26BB1622452EA400B08579 /* MainClassStructures.swift */,
+				0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */,
 				DBB263DB2240C23A00D864CD /* AudienceActivityView.swift */,
 				8B0959682243C41C00CABE05 /* News Page */,
 				DB87C06022360F960092E26F /* Community Page */,
@@ -354,12 +357,13 @@
 				8B26BB152244EE1100B08579 /* FriendsSectionHeader.swift in Sources */,
 				DB87C0452234E33F0092E26F /* FriendListViewController.swift in Sources */,
 				DBB263DC2240C23A00D864CD /* AudienceActivityView.swift in Sources */,
+				0410DF3322D32D9B0036445B /* ServerSessionConnections.swift in Sources */,
 				DB87C0492234E9E00092E26F /* FriendTableViewCell.swift in Sources */,
 				8B09596E2243C9AD00CABE05 /* NewsPostPrivatePhotoView.swift in Sources */,
 				8B09596B2243C46200CABE05 /* NewsPostTableViewCell.swift in Sources */,
 				DB87C06A22361F770092E26F /* AllCommuityTableViewCell.swift in Sources */,
 				DB87C0662236102B0092E26F /* CommunityTableViewCell.swift in Sources */,
-				8B26BB1722452EA400B08579 /* ImportantStructures.swift in Sources */,
+				8B26BB1722452EA400B08579 /* MainClassStructures.swift in Sources */,
 				DB1E923B22815938005B34F5 /* HeadPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

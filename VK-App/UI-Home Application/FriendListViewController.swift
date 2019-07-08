@@ -20,28 +20,6 @@ private var serverAnswer = [
 
 var friends = FriendList(serverAnswer)
 
-private class NetworkSession {
-    static let custom: Alamofire.Session = {
-        let configuration = URLSessionConfiguration.default
-        let sessionManager = Alamofire.Session(configuration: configuration)
-        return sessionManager
-    }()
-}
-
-private func downloadFriendList(){
-    let parameters: Parameters = [
-        "access_token": Session.instance.app_token!,
-        "v": "5.101"
-    ]
-    
-    NetworkSession.custom.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON {
-        response in
-        print(response.value)
-    }
-}
-
-
-
 class FriendListViewController: UIViewController {
     
     @IBOutlet weak var FriendTable: UITableView!
@@ -52,7 +30,7 @@ class FriendListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       downloadFriendList()
+       ServerTusks.instance.downloadFriendList()
         
         FriendTable.dataSource = self
         
