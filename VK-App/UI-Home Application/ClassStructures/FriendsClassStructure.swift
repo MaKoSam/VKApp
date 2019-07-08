@@ -9,19 +9,27 @@
 import UIKit
 import ObjectMapper
 
-class Session {
-    static let instance = Session()
-    private init(){ }
-    var client_id = "6995401"
+class ServerFriendResponse: Mappable{
+    var response: FriendResonseInternal? = nil
     
-    var app_token: String?
-    var user_id: Int?
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        response <- map["response"]
+    }
 }
 
-class FriendList {
-    static var instance = FriendList()
-    private init(){ }
+class FriendResonseInternal: Mappable {
+    var count: Int = 0
+    var items: [Int] = []
     
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        count <- map["count"]
+        items <- map["items"]
+    }
+}
+
+class FriendList { //For 
     var disorderedList = [User]()
     var orderedList = [String : [User]]()
     var headers = [String]()
@@ -62,52 +70,5 @@ class FriendList {
             disorderedList = serverList
             self.orderFriendList()
         }
-    }
-}
-
-
-
-class ServerUserResponse: Mappable {
-    var response: [User] = []
-    
-    required init?(map: Map) { }
-    func mapping(map: Map) {
-        response <- map["response"]
-    }
-}
-
-class User: Mappable{
-    var id: Int = 0
-    var first_name: String = ""
-    var last_name: String = ""
-    var avatar: String? = ""
-    
-    required init?(map: Map) { }
-    func mapping(map: Map) {
-        id <- map["id"]
-        first_name <- map["first_name"]
-        last_name <- map["last_name"]
-        avatar <- map["photo_50"]
-    }
-}
-
-
-class ServerFriendResponse: Mappable{
-    var response: FriendResonseInternal? = nil
-    
-    required init?(map: Map) { }
-    func mapping(map: Map) {
-        response <- map["response"]
-    }
-}
-
-class FriendResonseInternal: Mappable {
-    var count: Int = 0
-    var items: [Int] = []
-    
-    required init?(map: Map) { }
-    func mapping(map: Map) {
-        count <- map["count"]
-        items <- map["items"]
     }
 }
