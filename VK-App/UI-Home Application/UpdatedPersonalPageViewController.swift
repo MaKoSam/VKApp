@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import Alamofire
+
+private var serverAnswer = [
+    User(first_name: "None", last_name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
+    User(first_name: "None",last_name: "Jeff Bezos", photo: UIImage(imageLiteralResourceName: "friend2.jpg")),
+    User(first_name: "None",last_name: "Bill Atkinson", photo: UIImage(imageLiteralResourceName: "friend3.jpg")),
+    User(first_name: "None",last_name: "Steve P. Jobs", photo: UIImage(imageLiteralResourceName: "friend4.jpg")),
+    User(first_name: "None",last_name: "Jane Woodsilgton", photo: UIImage(imageLiteralResourceName: "friend5.jpg")),
+    User(first_name: "None",last_name: "Lisa Jobs", photo: UIImage(imageLiteralResourceName: "friend6.jpg"))
+]
+
+private var temp = FriendList(serverAnswer)
 
 class PersonalPageViewController: UIViewController {
     
     @IBOutlet weak var personalPageTable: UITableView!
     @IBOutlet weak var headPageView: HeadPageView!
     
-    var personData = Person(name: "Not Found", photo: UIImage(imageLiteralResourceName: "friend1.jpg"))
+    var personData = User(first_name: "None", last_name: "Not Found", photo: UIImage(imageLiteralResourceName: "friend1.jpg"))
     
     var posts = [
         "NEW Iphone Coming this September!",
@@ -23,14 +35,40 @@ class PersonalPageViewController: UIViewController {
         "New Online course opens at GeekBrains"
     ]
     
-    var temp = FriendData()
+    
+    private class NetworkSession {
+        static let custom: Alamofire.Session = {
+            let configuration = URLSessionConfiguration.default
+            let sessionManager = Alamofire.Session(configuration: configuration)
+            return sessionManager
+        }()
+    }
+    
+    private func downloadUserData(){
+        let parameters: Parameters = [
+            "fields": "status,city,photo_50",
+            "access_token": Session.instance.app_token!,
+            "v": "5.101"
+        ]
+        
+        NetworkSession.custom.request("https://api.vk.com/method/users.get", parameters: parameters).responseJSON {
+            response in
+            
+            print(response.value)
+        }
+    }
+
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        downloadUserData()
+        
         headPageView.image = personData.photo
-        headPageView.name = personData.name
+        headPageView.name = personData.last_name
         headPageView.status = "I'm happy to finally use this App!"
         headPageView.friendsNumber = "344"
         headPageView.followersNumber = "10334"
@@ -52,8 +90,8 @@ extension PersonalPageViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = personalPageTable.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! NewsPostTableViewCell
-        newCell.privatePersonPhoto.image = temp.publicUserData[temp.tableLitterals[0]]?.first?.photo
-        newCell.privatePersonName.text = temp.publicUserData[temp.tableLitterals[0]]?.first?.name
+        newCell.privatePersonPhoto.image = temp.orderedList[temp.headers[0]]?.first?.photo
+        newCell.privatePersonName.text = temp.orderedList[temp.headers[0]]?.first?.last_name
         return newCell
     }
     

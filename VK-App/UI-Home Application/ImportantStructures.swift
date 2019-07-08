@@ -8,90 +8,61 @@
 
 import UIKit
 
-struct Person{
-    var name : String
-    var photo : UIImage
+struct User {
+    var first_name : String?
+    var last_name : String
+    var photo : UIImage?
 }
 
 class Session {
     static let instance = Session()
+    private init(){ }
+    var client_id = "6995401"
     
-    private init(){
-    }
-    
-    var token: String = "Not Initialized"
-    var userId: Int = 404
-    
+    var app_token: String?
+    var user_id: Int?
 }
 
-
-struct FriendData {
-    var privateUserData = [
-        Person(name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
-        Person(name: "Jeff Bezos", photo: UIImage(imageLiteralResourceName: "friend2.jpg")),
-        Person(name: "Bill Atkinson", photo: UIImage(imageLiteralResourceName: "friend3.jpg")),
-        Person(name: "Steve P. Jobs", photo: UIImage(imageLiteralResourceName: "friend4.jpg")),
-        Person(name: "Jane Woodsilgton", photo: UIImage(imageLiteralResourceName: "friend5.jpg")),
-        Person(name: "Lisa Jobs", photo: UIImage(imageLiteralResourceName: "friend6.jpg")),
-    ]
+class FriendList {
+    var disorderedList = [User]()
+    var orderedList = [String : [User]]()
+    var headers = [String]()
     
-    var publicUserData = [String : [Person]]()
-    var tableLitterals = [String]()
-    
-    private mutating func preparePublicUserData(){
+    private func orderFriendList(){
+        orderedList.removeAll()
+        headers.removeAll()
+        disorderedList = disorderedList.sorted { $0.last_name < $1.last_name }
         
-        publicUserData.removeAll()
-        tableLitterals.removeAll()
-        self.privateUserData.sort(by: literalSort(_:_:))
+        var currentHeader = String( disorderedList[0].last_name.uppercased().first! )
+        var currentSection = [User]()
+        headers.append(currentHeader)
         
-        if privateUserData.isEmpty {
-            print("Fatal Error. No users Found.")
-            tableLitterals.append("Found")
-            var noOne = [Person]()
-            noOne.append(Person(name: "No users found", photo: UIImage(imageLiteralResourceName: "friend6.jpg")))
-            publicUserData.updateValue(noOne, forKey: "Found")
-            return
-        }
-        
-        var currentSymbol = privateUserData[0].name.lowercased().first!
-        tableLitterals.append(String(currentSymbol))
-        var currentSection = [Person]()
-        
-        for elements in privateUserData {
-            if elements.name.lowercased().first! == currentSymbol {
-                currentSection.append(elements)
-            } else {
-                publicUserData.updateValue(currentSection, forKey: String(currentSymbol))
-                currentSymbol = elements.name.lowercased().first!
-                tableLitterals.append(String(currentSymbol))
+        for elements in disorderedList {
+            if currentHeader != String( elements.last_name.uppercased().first! ) {
+                orderedList.updateValue(currentSection, forKey: currentHeader)
+                headers.append(currentHeader)
                 currentSection.removeAll()
-                currentSection.append(elements)
+                currentHeader = String( elements.last_name.uppercased().first! )
             }
+            currentSection.append(elements)
         }
         
         if !currentSection.isEmpty {
-            tableLitterals.append(String(currentSymbol))
-            publicUserData.updateValue(currentSection, forKey: String(currentSymbol))
-            currentSection.removeAll()
+            headers.append(currentHeader)
+            orderedList.updateValue(currentSection, forKey: currentHeader)
         }
     }
-    
-    private func literalSort(_ first: Person, _ second: Person) -> Bool {
-        return first.name > second.name ? false : true
+        
+    func updateList(){
+        self.orderFriendList()
     }
-    
-    public mutating func updataPublicData(){
-        self.preparePublicUserData()
+
+    init(_ serverList: [User]){
+        if serverList.isEmpty {
+            print("Error downloading frineds list from server.")
+        } else {
+            disorderedList = serverList
+            self.orderFriendList()
+        }
     }
-    
-    public mutating func nilData(){
-        self.privateUserData.removeAll()
-        self.publicUserData.removeAll()
-        self.tableLitterals.removeAll()
-    }
-    
-    init(){
-        self.preparePublicUserData()
-    }
-    
 }

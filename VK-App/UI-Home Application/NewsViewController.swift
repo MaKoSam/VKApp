@@ -8,11 +8,20 @@
 
 import UIKit
 
+private var serverAnswer = [
+    User(first_name: "None", last_name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
+    User(first_name: "None",last_name: "Jeff Bezos", photo: UIImage(imageLiteralResourceName: "friend2.jpg")),
+    User(first_name: "None",last_name: "Bill Atkinson", photo: UIImage(imageLiteralResourceName: "friend3.jpg")),
+    User(first_name: "None",last_name: "Steve P. Jobs", photo: UIImage(imageLiteralResourceName: "friend4.jpg")),
+    User(first_name: "None",last_name: "Jane Woodsilgton", photo: UIImage(imageLiteralResourceName: "friend5.jpg")),
+    User(first_name: "None",last_name: "Lisa Jobs", photo: UIImage(imageLiteralResourceName: "friend6.jpg"))
+]
+
+private var temp = FriendList(serverAnswer)
+
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var NewsTableView: UITableView!
-    
-    var temp = FriendData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +41,10 @@ extension NewsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = NewsTableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! NewsPostTableViewCell
-        newCell.privatePersonPhoto.image = temp.publicUserData[temp.tableLitterals[0]]?.first?.photo
-        newCell.privatePersonName.text = temp.publicUserData[temp.tableLitterals[0]]?.first?.name
+        newCell.privatePersonPhoto.image = temp.orderedList[temp.headers[0]]?.first?.photo
+        newCell.privatePersonName.text = temp.orderedList[temp.headers[0]]?.first?.last_name
         
-        newCell.postPhoto.image = temp.publicUserData[temp.tableLitterals[0]]?.first?.photo
+        newCell.postPhoto.image = temp.orderedList[temp.headers[0]]?.first?.photo
         
         return newCell
     }
