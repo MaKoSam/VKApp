@@ -9,17 +9,6 @@
 import UIKit
 import Alamofire
 
-private var serverAnswer = [
-    User(first_name: "None", last_name: "Rihanna", photo: UIImage(imageLiteralResourceName: "friend1.jpg")),
-    User(first_name: "None",last_name: "Jeff Bezos", photo: UIImage(imageLiteralResourceName: "friend2.jpg")),
-    User(first_name: "None",last_name: "Bill Atkinson", photo: UIImage(imageLiteralResourceName: "friend3.jpg")),
-    User(first_name: "None",last_name: "Steve P. Jobs", photo: UIImage(imageLiteralResourceName: "friend4.jpg")),
-    User(first_name: "None",last_name: "Jane Woodsilgton", photo: UIImage(imageLiteralResourceName: "friend5.jpg")),
-    User(first_name: "None",last_name: "Lisa Jobs", photo: UIImage(imageLiteralResourceName: "friend6.jpg"))
-]
-
-var friends = FriendList(serverAnswer)
-
 class FriendListViewController: UIViewController {
     
     @IBOutlet weak var FriendTable: UITableView!
@@ -88,27 +77,27 @@ extension FriendListViewController : UITableViewDataSource {
 //        if isFiltering() {
 //            return filteredFriends.tableLitterals.count
 //        }
-        return friends.headers.count
+        return FriendList.instance.headers.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        if isFiltering() {
 //            return filteredFriends.tableLitterals[section]
 //        }
-        return friends.headers[section]
+        return FriendList.instance.headers[section]
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        if isFiltering() {
 //            return filteredFriends.publicUserData[filteredFriends.tableLitterals[section]]!.count
 //        }
-        return friends.orderedList[ friends.headers[section] ]!.count
+        return FriendList.instance.orderedList[ FriendList.instance.headers[section] ]!.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = FriendTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
 
-        var currentSection = friends.orderedList[friends.headers[indexPath.section]]!
+        var currentSection = FriendList.instance.orderedList[FriendList.instance.headers[indexPath.section]]!
 
 //        if isFiltering() {
 //            currentSection = filteredFriends.publicUserData[filteredFriends.tableLitterals[indexPath.section]]!
