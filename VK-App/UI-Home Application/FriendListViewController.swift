@@ -9,19 +9,26 @@
 import UIKit
 
 class FriendListViewController: UIViewController {
-    var friends: FriendList? = nil
+    var myFriends: FriendList? = FriendList([])
     
     @IBOutlet weak var FriendTable: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        DispatchQueue.main.async {
+            ServerTusks.instance.downloadFriendData(){
+                [weak self] downloadedData in
+                self!.myFriends = downloadedData
+                self!.FriendTable.dataSource = self
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        FriendTable.dataSource = self
-        ServerTusks.instance.downloadFriendData(){
-            [weak self] downloadedData in
-            self!.friends = downloadedData
-        }
-        
 //        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Friends"
@@ -69,25 +76,43 @@ class FriendListViewController: UIViewController {
 
 
 extension FriendListViewController : UITableViewDataSource {
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return friends!.headers.count
+        if myFriends != nil {
+            return myFriends!.headers.count
+        } else {
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return friends!.headers[section]
+        if myFriends != nil {
+            return myFriends!.headers[section]
+        } else {
+            return nil
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends!.orderedList[ friends!.headers[section] ]!.count
+        if myFriends != nil {
+            return myFriends!.orderedList[ myFriends!.headers[section] ]!.count
+        } else {
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = FriendTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
-
-        var currentSection = friends!.orderedList[friends!.headers[indexPath.section]]!
-        newCell.friendName.text = currentSection[indexPath.row].last_name
-//        newCell.friendPhotoContentView.image = currentSection[indexPath.row].photo
+        var currentSection = myFriends!.orderedList[myFriends!.headers[indexPath.section]]!
+        
+        newCell.friendName.text = currentSection[indexPath.row].first_name
+        newCell.friendName.textAlignment = .right
+        newCell.friendLastName.text = currentSection[indexPath.row].last_name
+        
+        if currentSection[indexPath.row].avatar != nil {
+            newCell.imageURL = currentSection[indexPath.row].avatar!
+        }
         return newCell
     }
 

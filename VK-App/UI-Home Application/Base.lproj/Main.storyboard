@@ -115,8 +115,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-1Z-Gue">
-                                                    <rect key="frame" x="90" y="25" width="275" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-1Z-Gue">
+                                                    <rect key="frame" x="90" y="25" width="110" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="kyf-zD-o32"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -142,18 +145,27 @@
                                                         <constraint firstAttribute="height" constant="70" id="rP2-0E-LLo"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X71-to-7Ka">
+                                                    <rect key="frame" x="210" y="25" width="155" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.08235294118" green="0.0" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="X71-to-7Ka" firstAttribute="leading" secondItem="x8e-1Z-Gue" secondAttribute="trailing" constant="10" id="5AN-um-biF"/>
                                                 <constraint firstItem="x8e-1Z-Gue" firstAttribute="leading" secondItem="uVf-6G-UpP" secondAttribute="trailing" constant="10" id="7sU-Et-qdQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="x8e-1Z-Gue" secondAttribute="trailing" constant="10" id="GVQ-xp-1gT"/>
+                                                <constraint firstAttribute="trailing" secondItem="X71-to-7Ka" secondAttribute="trailing" constant="10" id="FGp-Ex-Kbd"/>
+                                                <constraint firstItem="X71-to-7Ka" firstAttribute="centerY" secondItem="YKu-Zg-BRF" secondAttribute="centerY" id="oxa-rX-jTx"/>
                                                 <constraint firstItem="x8e-1Z-Gue" firstAttribute="centerY" secondItem="YKu-Zg-BRF" secondAttribute="centerY" id="rEo-8B-X5p"/>
                                                 <constraint firstItem="uVf-6G-UpP" firstAttribute="leading" secondItem="YKu-Zg-BRF" secondAttribute="leading" constant="10" id="snn-HW-QbO"/>
                                                 <constraint firstItem="uVf-6G-UpP" firstAttribute="centerY" secondItem="YKu-Zg-BRF" secondAttribute="centerY" id="vkk-et-wHV"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.082352941176470587" green="0.0" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="friendLastName" destination="X71-to-7Ka" id="CUr-RV-UzN"/>
                                             <outlet property="friendName" destination="x8e-1Z-Gue" id="z26-gF-ZyG"/>
                                             <outlet property="friendPhoto" destination="Gwb-mw-j7q" id="yv2-t1-um0"/>
                                             <outlet property="friendPhotoContentView" destination="uVf-6G-UpP" id="L3B-eI-lIo"/>

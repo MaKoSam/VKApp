@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 
+
 class Session {
     static let instance = Session()
     private init(){ }
@@ -53,7 +54,9 @@ class ServerTusks {
                     self.downloadUsersData(user_ids){
                         [weak self] Users in
                         let downloadedFriendList = FriendList(Users)
-                        completionHeandler(downloadedFriendList)
+                        DispatchQueue.main.async {
+                            completionHeandler(downloadedFriendList)
+                        }
                     }
                 }
         }
@@ -74,7 +77,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completion(response.response)
+                    DispatchQueue.main.async {
+                        completion(response.response)
+                    }
                 }
         }
     }
@@ -93,7 +98,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completionHeandler(response.response!.items)
+                    DispatchQueue.main.async {
+                        completionHeandler(response.response!.items)
+                    }
                 }
         }
     }

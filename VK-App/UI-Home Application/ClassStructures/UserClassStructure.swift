@@ -20,9 +20,15 @@ class ServerUserResponse: Mappable {
 
 class User: Mappable{
     var id: Int = 0
+    var full_name: String = "" 
     var first_name: String = ""
     var last_name: String = ""
     var avatar: String? = ""
+    
+    init() {
+        first_name = "NOUSER"
+        last_name = "NOUSER"
+    }
     
     required init?(map: Map) { }
     func mapping(map: Map) {
