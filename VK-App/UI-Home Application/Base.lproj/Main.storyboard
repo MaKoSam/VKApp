@@ -105,8 +105,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-0C-wKE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.0" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.08235294118" green="0.0" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" rowHeight="70" id="Mha-bM-Tde" customClass="FriendTableViewCell" customModule="UI_Home_Application" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -116,7 +116,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-1Z-Gue">
-                                                    <rect key="frame" x="90" y="25" width="110" height="20"/>
+                                                    <rect key="frame" x="80" y="25" width="110" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="kyf-zD-o32"/>
                                                     </constraints>
@@ -125,28 +125,28 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVf-6G-UpP" customClass="FriendTableBarPhotoView" customModule="UI_Home_Application" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="-0.3333333333333357" width="70" height="70.333333333333343"/>
+                                                    <rect key="frame" x="10" y="5" width="60" height="60"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gwb-mw-j7q">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="4XC-Lz-diR"/>
-                                                                <constraint firstAttribute="width" constant="70" id="B4v-IU-Jsn"/>
+                                                                <constraint firstAttribute="height" constant="60" id="4XC-Lz-diR"/>
+                                                                <constraint firstAttribute="width" constant="60" id="B4v-IU-Jsn"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="D21-Tq-OQY"/>
+                                                        <constraint firstAttribute="width" constant="60" id="D21-Tq-OQY"/>
                                                         <constraint firstAttribute="bottom" secondItem="Gwb-mw-j7q" secondAttribute="bottom" id="OtM-46-7na"/>
                                                         <constraint firstItem="Gwb-mw-j7q" firstAttribute="top" secondItem="uVf-6G-UpP" secondAttribute="top" id="iVU-eh-MGV"/>
                                                         <constraint firstAttribute="trailing" secondItem="Gwb-mw-j7q" secondAttribute="trailing" id="k6f-hK-UCy"/>
                                                         <constraint firstItem="Gwb-mw-j7q" firstAttribute="leading" secondItem="uVf-6G-UpP" secondAttribute="leading" id="pWd-nr-e3I"/>
-                                                        <constraint firstAttribute="height" constant="70" id="rP2-0E-LLo"/>
+                                                        <constraint firstAttribute="height" constant="60" id="rP2-0E-LLo"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X71-to-7Ka">
-                                                    <rect key="frame" x="210" y="25" width="155" height="20"/>
+                                                    <rect key="frame" x="195" y="25" width="170" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -154,7 +154,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.08235294118" green="0.0" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="X71-to-7Ka" firstAttribute="leading" secondItem="x8e-1Z-Gue" secondAttribute="trailing" constant="10" id="5AN-um-biF"/>
+                                                <constraint firstItem="X71-to-7Ka" firstAttribute="leading" secondItem="x8e-1Z-Gue" secondAttribute="trailing" constant="5" id="5AN-um-biF"/>
                                                 <constraint firstItem="x8e-1Z-Gue" firstAttribute="leading" secondItem="uVf-6G-UpP" secondAttribute="trailing" constant="10" id="7sU-Et-qdQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="X71-to-7Ka" secondAttribute="trailing" constant="10" id="FGp-Ex-Kbd"/>
                                                 <constraint firstItem="X71-to-7Ka" firstAttribute="centerY" secondItem="YKu-Zg-BRF" secondAttribute="centerY" id="oxa-rX-jTx"/>
@@ -175,7 +175,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.47843137250000001" green="0.63137254899999995" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.08235294118" green="0.0" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="cKb-0C-wKE" secondAttribute="bottom" id="nTR-UB-Mvq"/>
                             <constraint firstAttribute="trailing" secondItem="cKb-0C-wKE" secondAttribute="trailing" id="sBs-Ag-2Bt"/>
