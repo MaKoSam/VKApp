@@ -8,6 +8,7 @@ target 'UI-Home Application' do
   pod 'Alamofire', '~> 5.0.0-beta.5'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'AlamofireObjectMapper'
+  pod 'SwiftKeychainWrapper'
 
   # Pods for UI-Home Application
 
