@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SwiftKeychainWrapper
 
 class WKLoginViewController: UIViewController {
 
@@ -62,6 +63,9 @@ extension WKLoginViewController: WKNavigationDelegate {
         }
         
         Session.instance.app_token = params["access_token"]
+        
+        let saveSuccessful: Bool = KeychainWrapper.standard.set(Session.instance.app_token!, forKey: "VKAccessToken")
+        UserDefaults.standard.set(true, forKey: "isOnline")
         
         print(Session.instance.app_token)
         if Session.instance.app_token != nil {
