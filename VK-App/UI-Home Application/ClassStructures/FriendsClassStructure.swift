@@ -7,23 +7,29 @@
 //
 
 import UIKit
+import ObjectMapper
 
-struct User {
-    var first_name : String?
-    var last_name : String
-    var photo : UIImage?
-}
-
-class Session {
-    static let instance = Session()
-    private init(){ }
-    var client_id = "6995401"
+class ServerFriendResponse: Mappable{
+    var response: FriendResonseInternal? = nil
     
-    var app_token: String?
-    var user_id: Int?
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        response <- map["response"]
+    }
 }
 
-class FriendList {
+class FriendResonseInternal: Mappable {
+    var count: Int = 0
+    var items: [Int] = []
+    
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        count <- map["count"]
+        items <- map["items"]
+    }
+}
+
+class FriendList { //For 
     var disorderedList = [User]()
     var orderedList = [String : [User]]()
     var headers = [String]()
