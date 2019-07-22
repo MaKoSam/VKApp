@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0410DF3322D32D9B0036445B /* ServerSessionConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */; };
+		041F29F322E5C227007AAD69 /* FollowersIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 041F29F122E5C227007AAD69 /* FollowersIcon.png */; };
+		041F29F422E5C227007AAD69 /* PostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 041F29F222E5C227007AAD69 /* PostIcon.png */; };
 		0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803022D36E56000FEA78 /* UserClassStructure.swift */; };
 		0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */; };
 		04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB20E222CDE09900618D22 /* WKLoginViewController.swift */; };
@@ -15,8 +17,6 @@
 		04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F222DCA972000DB775 /* ProfilePageViewController.swift */; };
 		04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */; };
 		04C819F722DCAB38000DB775 /* ProfileHeadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */; };
-		04C819F922DDA2B7000DB775 /* FollowersIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C819F822DDA2B7000DB775 /* FollowersIcon.png */; };
-		04C819FB22DDA4E8000DB775 /* PostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04C819FA22DDA4E8000DB775 /* PostIcon.png */; };
 		2AA3E4BBC49CEA846AAF228E /* Pods_UI_Home_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4235CDA4BAFC7C7773E3510 /* Pods_UI_Home_Application.framework */; };
 		8B0959672243C31000CABE05 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0959662243C31000CABE05 /* NewsViewController.swift */; };
 		8B09596B2243C46200CABE05 /* NewsPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0959692243C46200CABE05 /* NewsPostTableViewCell.swift */; };
@@ -30,8 +30,6 @@
 		DB1E923B22815938005B34F5 /* HeadPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E923A22815938005B34F5 /* HeadPageView.swift */; };
 		DB7A7EB922410FE200327637 /* aLike.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7A7EB822410FE200327637 /* aLike.png */; };
 		DB7A7EBB22410FED00327637 /* noLike.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7A7EBA22410FED00327637 /* noLike.png */; };
-		DB7A7EC12241152500327637 /* communityIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7A7EC02241152500327637 /* communityIcon.png */; };
-		DB7A7EC32241152B00327637 /* friendIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7A7EC22241152A00327637 /* friendIcon.png */; };
 		DB87C0452234E33F0092E26F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C0442234E33F0092E26F /* FriendListViewController.swift */; };
 		DB87C0492234E9E00092E26F /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87C0482234E9E00092E26F /* FriendTableViewCell.swift */; };
 		DB87C04E2234EF540092E26F /* background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = DB87C04D2234EF530092E26F /* background.JPG */; };
@@ -45,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSessionConnections.swift; sourceTree = "<group>"; };
+		041F29F122E5C227007AAD69 /* FollowersIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FollowersIcon.png; sourceTree = "<group>"; };
+		041F29F222E5C227007AAD69 /* PostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostIcon.png; sourceTree = "<group>"; };
 		0432803022D36E56000FEA78 /* UserClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassStructure.swift; sourceTree = "<group>"; };
 		0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsClassStructure.swift; sourceTree = "<group>"; };
 		04AB20E222CDE09900618D22 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
@@ -52,8 +52,6 @@
 		04C819F222DCA972000DB775 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeadView.swift; sourceTree = "<group>"; };
 		04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeadPhoto.swift; sourceTree = "<group>"; };
-		04C819F822DDA2B7000DB775 /* FollowersIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FollowersIcon.png; path = ../../../../Downloads/FollowersIcon.png; sourceTree = "<group>"; };
-		04C819FA22DDA4E8000DB775 /* PostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PostIcon.png; path = ../../../../Downloads/PostIcon.png; sourceTree = "<group>"; };
 		22D041657188665502643C9B /* Pods-UI-Home Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI-Home Application.release.xcconfig"; path = "Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application.release.xcconfig"; sourceTree = "<group>"; };
 		8B0959662243C31000CABE05 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8B0959692243C46200CABE05 /* NewsPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,8 +68,6 @@
 		DB1E923A22815938005B34F5 /* HeadPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadPageView.swift; sourceTree = "<group>"; };
 		DB7A7EB822410FE200327637 /* aLike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aLike.png; sourceTree = "<group>"; };
 		DB7A7EBA22410FED00327637 /* noLike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noLike.png; sourceTree = "<group>"; };
-		DB7A7EC02241152500327637 /* communityIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = communityIcon.png; sourceTree = "<group>"; };
-		DB7A7EC22241152A00327637 /* friendIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendIcon.png; sourceTree = "<group>"; };
 		DB87C0442234E33F0092E26F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		DB87C0482234E9E00092E26F /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		DB87C04D2234EF530092E26F /* background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.JPG; sourceTree = "<group>"; };
@@ -131,10 +127,8 @@
 		8B14531B222E0DB700F60DE6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				04C819F822DDA2B7000DB775 /* FollowersIcon.png */,
-				04C819FA22DDA4E8000DB775 /* PostIcon.png */,
-				DB7A7EC22241152A00327637 /* friendIcon.png */,
-				DB7A7EC02241152500327637 /* communityIcon.png */,
+				041F29F122E5C227007AAD69 /* FollowersIcon.png */,
+				041F29F222E5C227007AAD69 /* PostIcon.png */,
 				DB87C04D2234EF530092E26F /* background.JPG */,
 				DB7A7EB822410FE200327637 /* aLike.png */,
 				DB7A7EBA22410FED00327637 /* noLike.png */,
@@ -282,16 +276,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB3576C222CCED700B7792A /* LaunchScreen.storyboard in Resources */,
-				DB7A7EC12241152500327637 /* communityIcon.png in Resources */,
+				041F29F422E5C227007AAD69 /* PostIcon.png in Resources */,
 				8BB35769222CCED700B7792A /* Assets.xcassets in Resources */,
+				041F29F322E5C227007AAD69 /* FollowersIcon.png in Resources */,
 				DB87C04E2234EF540092E26F /* background.JPG in Resources */,
 				DB7A7EB922410FE200327637 /* aLike.png in Resources */,
 				8BB35767222CCED500B7792A /* Main.storyboard in Resources */,
-				04C819F922DDA2B7000DB775 /* FollowersIcon.png in Resources */,
-				04C819FB22DDA4E8000DB775 /* PostIcon.png in Resources */,
 				DB7A7EBB22410FED00327637 /* noLike.png in Resources */,
 				8B09596C2243C46200CABE05 /* NewsPostTableViewCell.xib in Resources */,
-				DB7A7EC32241152B00327637 /* friendIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
