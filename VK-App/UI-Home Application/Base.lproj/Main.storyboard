@@ -146,7 +146,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X71-to-7Ka">
-                                                    <rect key="frame" x="195" y="25" width="170" height="20"/>
+                                                    <rect key="frame" x="195" y="25" width="209" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -235,7 +235,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnK-Oj-ldl">
-                                                    <rect key="frame" x="90" y="11.5" width="275" height="20.5"/>
+                                                    <rect key="frame" x="90" y="11.5" width="314" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -427,7 +427,7 @@
         <scene sceneID="SdD-hB-8oZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="odb-5x-S0Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="friendIcon.png" selectedImage="friendIcon.png" id="nMk-C7-Rnt"/>
+                    <tabBarItem key="tabBarItem" title="Friends" selectedImage="friendIcon.png" id="nMk-C7-Rnt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5E6-1M-R2d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -446,7 +446,7 @@
         <scene sceneID="JQ6-Je-eVC">
             <objects>
                 <navigationController title="Communities" automaticallyAdjustsScrollViewInsets="NO" id="AXP-sA-Y1O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communities" image="communityIcon.png" selectedImage="communityIcon.png" id="t16-cS-dXz"/>
+                    <tabBarItem key="tabBarItem" title="Communities" selectedImage="communityIcon.png" id="t16-cS-dXz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qxb-v4-awJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
