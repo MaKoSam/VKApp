@@ -66,7 +66,7 @@ class ServerTusks {
     func downloadUsersData(_ users: String, completion: @escaping ([User]) -> Void ){
         let parameters: Parameters = [
             "user_ids": users,
-            "fields": "photo_50",
+            "fields": "online,status,photo_50,photo_200_orig,last_seen,followers_count",
             "access_token": Session.instance.app_token!,
             "v": "5.101"
         ]

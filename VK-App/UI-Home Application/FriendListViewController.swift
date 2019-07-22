@@ -110,8 +110,8 @@ extension FriendListViewController : UITableViewDataSource {
         newCell.friendName.textAlignment = .right
         newCell.friendLastName.text = currentSection[indexPath.row].last_name
         
-        if currentSection[indexPath.row].avatar != nil {
-            newCell.imageURL = currentSection[indexPath.row].avatar!
+        if currentSection[indexPath.row].avatar_small != nil {
+            newCell.imageURL = currentSection[indexPath.row].avatar_small!
         }
         return newCell
     }

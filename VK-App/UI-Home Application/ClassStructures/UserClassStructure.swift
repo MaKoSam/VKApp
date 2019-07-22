@@ -20,10 +20,16 @@ class ServerUserResponse: Mappable {
 
 class User: Mappable{
     var id: Int = 0
-    var full_name: String = "" 
+//    var isOnline
+    var full_name: String = ""
     var first_name: String = ""
     var last_name: String = ""
-    var avatar: String? = ""
+    var status: String? = ""
+    var avatar_small: String? = ""
+    var avatar_profile: String? = ""
+    var last_seen: String = ""
+    var followers_count: String = ""
+    
     
     init() {
         first_name = "NOUSER"
@@ -35,6 +41,9 @@ class User: Mappable{
         id <- map["id"]
         first_name <- map["first_name"]
         last_name <- map["last_name"]
-        avatar <- map["photo_50"]
+        status <- map["status"]
+        avatar_small <- map["photo_50"]
+        avatar_profile <- map["photo_200_orig"]
+        followers_count <- map["followers_count"]
     }
 }
