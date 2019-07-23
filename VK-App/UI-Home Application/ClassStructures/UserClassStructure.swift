@@ -6,8 +6,10 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import ObjectMapper
+import RealmSwift
+
 
 class ServerUserResponse: Mappable {
     var response: [User] = []
@@ -18,25 +20,20 @@ class ServerUserResponse: Mappable {
     }
 }
 
-class User: Mappable{
-    var id: Int = 0
-//    var isOnline
-    var full_name: String = ""
-    var first_name: String = ""
-    var last_name: String = ""
-    var status: String? = ""
-    var avatar_small: String? = ""
-    var avatar_profile: String? = ""
-    var last_seen: String = ""
-    var followers_count: String = ""
+class User: Object, Mappable{
+    @objc dynamic var id: Int = 0
+    @objc dynamic var full_name: String = ""
+    @objc dynamic var first_name: String = ""
+    @objc dynamic var last_name: String = ""
+    @objc dynamic var status: String? = nil
+    @objc dynamic var avatar_small: String? = nil
+    @objc dynamic var avatar_profile: String? = nil
     
-    
-    init() {
-        first_name = "NOUSER"
-        last_name = "NOUSER"
+    required convenience init(map: Map) {
+        self.init()
+        self.mapping(map: map)
     }
     
-    required init?(map: Map) { }
     func mapping(map: Map) {
         id <- map["id"]
         first_name <- map["first_name"]
@@ -44,6 +41,11 @@ class User: Mappable{
         status <- map["status"]
         avatar_small <- map["photo_50"]
         avatar_profile <- map["photo_200_orig"]
-        followers_count <- map["followers_count"]
+        full_name = "\(first_name.lowercased()) \(last_name.lowercased())"
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
 }

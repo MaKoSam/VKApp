@@ -69,9 +69,13 @@ extension WKLoginViewController: WKNavigationDelegate {
         
         print(Session.instance.app_token)
         if Session.instance.app_token != nil {
-            performSegue(withIdentifier: "signIn", sender: nil)
+            DispatchQueue.main.async {
+                ServerTusks.instance.downloadFriendData(){
+                    [weak self] in
+                    self?.performSegue(withIdentifier: "signIn", sender: nil)
+                }
+            }
         }
-        
         
         decisionHandler(.cancel)
     }

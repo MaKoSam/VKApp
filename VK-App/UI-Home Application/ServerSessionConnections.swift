@@ -6,11 +6,9 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import UIKit
+import RealmSwift
 import Alamofire
 import AlamofireObjectMapper
-
-
 
 class Session {
     static let instance = Session()
@@ -36,7 +34,7 @@ class ServerTusks {
     static let instance = ServerTusks()
     private init(){ }
     
-    func downloadFriendData(completionHeandler: @escaping (FriendList) -> Void){
+    func downloadFriendData(completionHeandler: @escaping () -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
             "v": "5.101"
@@ -51,11 +49,10 @@ class ServerTusks {
                     var user_ids: String = ""
                     for elements in response.response!.items { user_ids += "\(elements)," }
                     
-                    self.downloadUsersData(user_ids){
-                        [weak self] Users in
-                        let downloadedFriendList = FriendList(Users)
-                        DispatchQueue.main.async {
-                            completionHeandler(downloadedFriendList)
+                    DispatchQueue.main.async {
+                        self.downloadUsersData(user_ids){
+                            [weak self] in
+                            completionHeandler()
                         }
                     }
                 }
@@ -63,10 +60,10 @@ class ServerTusks {
     }
     
     
-    func downloadUsersData(_ users: String, completion: @escaping ([User]) -> Void ){
+    func downloadUsersData(_ users: String, completion: @escaping () -> Void ){
         let parameters: Parameters = [
             "user_ids": users,
-            "fields": "online,status,photo_50,photo_200_orig,last_seen,followers_count",
+            "fields": "status,photo_50,photo_200_orig",
             "access_token": Session.instance.app_token!,
             "v": "5.101"
         ]
@@ -77,9 +74,8 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    DispatchQueue.main.async {
-                        completion(response.response)
-                    }
+                    self.saveFriendsData(response.response)
+                    completion()
                 }
         }
     }
@@ -102,6 +98,19 @@ class ServerTusks {
                         completionHeandler(response.response!.items)
                     }
                 }
+        }
+    }
+    
+    func saveFriendsData(_ users: [User]){
+        do {
+            let realm = try Realm()
+            let oldData = realm.objects(User.self)
+            realm.beginWrite()
+            realm.delete(oldData)
+            realm.add(users)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
 }

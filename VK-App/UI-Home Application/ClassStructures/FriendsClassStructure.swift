@@ -37,10 +37,6 @@ class FriendList {
     private func orderFriendList(){
         orderedList.removeAll()
         headers.removeAll()
-        for elements in disorderedList {
-            elements.full_name = "\(elements.last_name) \(elements.first_name)"
-            print(elements.full_name)
-        }
         
         disorderedList = disorderedList.sorted { $0.full_name < $1.full_name }
         
