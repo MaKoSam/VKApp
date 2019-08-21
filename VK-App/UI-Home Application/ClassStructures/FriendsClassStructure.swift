@@ -6,8 +6,8 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
+import Foundation
 
 class ServerFriendResponse: Mappable{
     var response: FriendResonseInternal? = nil

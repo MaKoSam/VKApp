@@ -29,12 +29,29 @@ private class NetworkSession {
 }
 
 
-
 class ServerTusks {
     static let instance = ServerTusks()
     private init(){ }
     
-    func downloadFriendData(completionHeandler: @escaping () -> Void){
+    func downloadOwnerData(completionHeandler: @escaping (Owner) -> Void ){
+        let parameters: Parameters = [
+            "access_token": Session.instance.app_token!,
+            "v": "5.101"
+        ]
+        
+        NetworkSession.custom.request("https://api.vk.com/method/account.getProfileInfo", parameters: parameters)
+            .responseObject { (VKResponse: DataResponse<ServerOwnerResponse>) in
+                let result = VKResponse.result
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let response):
+                    completionHeandler(response.response)
+                }
+        }
+    }
+    
+    func downloadFriendData(completionHeandler: @escaping ([User]) -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
             "v": "5.101"
@@ -51,16 +68,15 @@ class ServerTusks {
                     
                     DispatchQueue.main.async {
                         self.downloadUsersData(user_ids){
-                            [weak self] in
-                            completionHeandler()
+                            [weak self] friendList in
+                            completionHeandler(friendList)
                         }
                     }
                 }
         }
     }
     
-    
-    func downloadUsersData(_ users: String, completion: @escaping () -> Void ){
+    func downloadUsersData(_ users: String, completion: @escaping ([User]) -> Void ){
         let parameters: Parameters = [
             "user_ids": users,
             "fields": "status,photo_50,photo_200_orig",
@@ -74,8 +90,7 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    self.saveFriendsData(response.response)
-                    completion()
+                    completion(response.response)
                 }
         }
     }
@@ -84,6 +99,7 @@ class ServerTusks {
     func downloadGroupData(completionHeandler: @escaping ([Group]) -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
+            "extended": "1",
             "fields": "photo_50",
             "v": "5.101"
         ]
@@ -94,21 +110,56 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    DispatchQueue.main.async {
-                        completionHeandler(response.response!.items)
-                    }
+                    completionHeandler(response.response!.items)
                 }
         }
     }
     
-    func saveFriendsData(_ users: [User]){
+    func saveOwner(_  user: Owner){
         do {
             let realm = try Realm()
-            let oldData = realm.objects(User.self)
+            print(realm.configuration.fileURL)
+            let oldOwner = realm.objects(Owner.self)
             realm.beginWrite()
-            realm.delete(oldData)
-            realm.add(users)
+            realm.delete(oldOwner)
+            realm.add(user)
             try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func saveOwnerFriends(_ user: Owner, _ friendList: [User]){
+        do {
+            let realm = try Realm()
+            let oldFriends = realm.objects(User.self)
+            realm.beginWrite()
+            realm.delete(oldFriends)
+            try realm.commitWrite()
+            
+            try realm.write {
+                for elements in friendList {
+                    user.friends.append(elements)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func saveOwnerGroups(_ user: Owner, _ groupList: [Group]){
+        do {
+            let realm = try Realm()
+            let oldGroups = realm.objects(Group.self)
+            realm.beginWrite()
+            realm.delete(oldGroups)
+            try realm.commitWrite()
+            
+            try realm.write {
+                for elements in groupList {
+                    user.communities.append(elements)
+                }
+            }
         } catch {
             print(error)
         }

@@ -14,14 +14,14 @@ class FriendListViewController: UIViewController {
     var myFiltered: FriendList? = FriendList([])
     
     @IBOutlet weak var FriendTable: UITableView!
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     func loadDataFromDataBase(){
         do {
             let realm = try Realm()
-            print(realm.configuration.fileURL)
             let preloadedList = realm.objects(User.self)
-            let arrayList = Array(preloadedList)
+            var arrayList = Array(preloadedList)
             self.myFriends = FriendList(arrayList)
         } catch {
             print(error)
@@ -35,7 +35,7 @@ class FriendListViewController: UIViewController {
         FriendTable.dataSource = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Friends"
+        searchController.searchBar.placeholder = "Search for a friend"
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
@@ -59,7 +59,6 @@ extension FriendListViewController : UISearchResultsUpdating {
         } catch {
             print(error)
         }
-        
         FriendTable.reloadData()
     }
 
@@ -75,80 +74,103 @@ extension FriendListViewController : UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering() {
-            if myFiltered != nil {
-                return myFiltered!.headers.count
-            } else {
+            guard let activeHeaders = myFiltered?.headers else {
                 return 0
             }
+            return activeHeaders.count
         } else {
-            if myFriends != nil {
-                return myFriends!.headers.count
-            } else {
+            guard let activeHeaders = myFriends?.headers else {
                 return 0
             }
+            return activeHeaders.count
         }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if isFiltering() {
-            if myFiltered != nil {
-                return myFiltered!.headers[section]
-            } else {
-                return nil
+            guard let activeHeaders = myFiltered?.headers else {
+                return ""
             }
+            return activeHeaders[section]
         } else {
-            if myFriends != nil {
-                return myFriends!.headers[section]
-            } else {
-                return nil
+            guard let activeHeaders = myFriends?.headers else {
+                return ""
             }
+            return activeHeaders[section]
         }
-        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
-            if myFiltered != nil {
-                return myFiltered!.orderedList[ myFiltered!.headers[section] ]!.count
-            } else {
+            guard let activeList = myFiltered?.orderedList,
+                  let activeHeaders = myFiltered?.headers,
+                  let activeSection = activeList[ activeHeaders[section] ] else {
                 return 0
             }
+            return activeSection.count
         } else {
-            if myFriends != nil {
-                return myFriends!.orderedList[ myFriends!.headers[section] ]!.count
-            } else {
-                return 0
+            guard let activeList = myFriends?.orderedList,
+                let activeHeaders = myFriends?.headers,
+                let activeSection = activeList[ activeHeaders[section] ] else {
+                    return 0
             }
+            return activeSection.count
         }
-        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = FriendTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
-        var currentSection = myFriends!.orderedList[myFriends!.headers[indexPath.section]]!
         
+        var currentSection = [User]()
         if isFiltering() {
-            currentSection = myFiltered!.orderedList[myFiltered!.headers[indexPath.section]]!
+            guard let activeList = myFiltered?.orderedList,
+                let activeHeaders = myFiltered?.headers,
+                let activeSection = activeList[ activeHeaders[indexPath.section] ] else {
+                    return newCell
+            }
+            currentSection = activeSection
+        } else {
+            guard let activeList = myFriends?.orderedList,
+                let activeHeaders = myFriends?.headers,
+                let activeSection = activeList[ activeHeaders[indexPath.section] ] else {
+                    return newCell
+            }
+            currentSection = activeSection
         }
         
         newCell.friendName.text = currentSection[indexPath.row].first_name
         newCell.friendName.textAlignment = .right
         newCell.friendLastName.text = currentSection[indexPath.row].last_name
         
-        if currentSection[indexPath.row].avatar_small != nil {
-            newCell.imageURL = currentSection[indexPath.row].avatar_small!
+        if let imageURL = currentSection[indexPath.row].avatar_small {
+            let healper = DispatchQueue.global(qos: .background)
+            healper.async {
+                let url = URL(string: imageURL)
+                do {
+                    let data = try Data(contentsOf: url!)
+                    DispatchQueue.main.async {
+                        newCell.friendPhotoContentView.image = UIImage(data: data)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
         }
+        
         return newCell
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toPerson"{
-//            let indexPath = self.FriendTable.indexPathForSelectedRow!
-//            let currentSection = friends.publicUserData[friends.tableLitterals[indexPath.section]]!
-//            if let destination : PersonalPageViewController! = segue.destination as! PersonalPageViewController {
-//                destination?.personData = currentSection[indexPath.row]
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPerson"{
+            let indexPath = self.FriendTable.indexPathForSelectedRow!
+            var currentSection = myFriends!.orderedList[myFriends!.headers[indexPath.section]]!
+            if isFiltering() {
+                currentSection = myFiltered!.orderedList[myFiltered!.headers[indexPath.section]]!
+            }
+            if let destination : ProfilePageViewController! = segue.destination as! ProfilePageViewController {
+                destination?.PersonalIdentificator = currentSection[indexPath.row].id
+            }
+        }
+    }
 
 }
