@@ -6,8 +6,8 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
+import Foundation
 
 class ServerFriendResponse: Mappable{
     var response: FriendResonseInternal? = nil
@@ -29,7 +29,7 @@ class FriendResonseInternal: Mappable {
     }
 }
 
-class FriendList { //For 
+class FriendList { 
     var disorderedList = [User]()
     var orderedList = [String : [User]]()
     var headers = [String]()
@@ -37,18 +37,18 @@ class FriendList { //For
     private func orderFriendList(){
         orderedList.removeAll()
         headers.removeAll()
-        disorderedList = disorderedList.sorted { $0.last_name < $1.last_name }
         
-        var currentHeader = String( disorderedList[0].last_name.uppercased().first! )
+        disorderedList = disorderedList.sorted { $0.full_name < $1.full_name }
+        
+        var currentHeader = String( disorderedList[0].full_name.uppercased().first! )
         var currentSection = [User]()
-        headers.append(currentHeader)
         
         for elements in disorderedList {
-            if currentHeader != String( elements.last_name.uppercased().first! ) {
+            if currentHeader != String( elements.full_name.uppercased().first! ) {
                 orderedList.updateValue(currentSection, forKey: currentHeader)
                 headers.append(currentHeader)
                 currentSection.removeAll()
-                currentHeader = String( elements.last_name.uppercased().first! )
+                currentHeader = String( elements.full_name.uppercased().first! )
             }
             currentSection.append(elements)
         }
@@ -65,7 +65,8 @@ class FriendList { //For
 
     init(_ serverList: [User]){
         if serverList.isEmpty {
-            print("Error downloading frineds list from server.")
+            let noUser : User = User()
+            disorderedList.append(noUser)
         } else {
             disorderedList = serverList
             self.orderFriendList()

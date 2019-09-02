@@ -11,12 +11,12 @@ import UIKit
 class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var friendLastName: UILabel!
     @IBOutlet weak var friendPhoto: UIImageView!
     @IBOutlet weak var friendPhotoContentView: FriendTableBarPhotoView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -6,8 +6,9 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
+import RealmSwift
+import Foundation
 
 
 class ServerGroupResponse: Mappable{
@@ -30,12 +31,16 @@ class GroupsResonseInternal: Mappable{
     }
 }
 
-class Group: Mappable{
-    var id: Int = 0
-    var name: String = ""
-    var avatar: String = ""
+class Group: Object, Mappable{
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var avatar: String = ""
     
-    required init?(map: Map) { }
+    required convenience init(map: Map) {
+        self.init()
+        self.mapping(map: map)
+    }
+    
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]

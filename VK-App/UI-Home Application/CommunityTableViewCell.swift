@@ -9,14 +9,11 @@
 import UIKit
 
 class CommunityTableViewCell: UITableViewCell {
-
     
-    @IBOutlet weak var communityName: UILabel!
-    @IBOutlet weak var communityPhoto: UIImageView!
+    @IBOutlet weak var CommunityName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

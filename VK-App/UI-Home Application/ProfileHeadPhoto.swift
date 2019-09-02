@@ -1,24 +1,25 @@
 //
-//  File.swift
+//  ProfileHeadPhoto.swift
 //  UI-Home Application
 //
-//  Created by Developer on 21/03/2019.
+//  Created by Sam Mazniker on 15/07/2019.
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
 import UIKit
 
-class NewsPrivatePhotoView: UIView {
-    
+class ProfileHeadPhoto: UIView {
+
     var image: UIImage?{
         didSet {
             contentView.image = image
         }
     }
+    
     var contentView: UIImageView!
     
     @IBInspectable var shadowOffSet: CGSize = CGSize.zero
-    @IBInspectable var shadowOpacity: Float = 0.5
+    @IBInspectable var shadowOpacity: Float = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,5 +40,5 @@ class NewsPrivatePhotoView: UIView {
         layer.cornerRadius = bounds.width / 2
         contentView.layer.cornerRadius = bounds.width / 2
     }
-}
 
+}

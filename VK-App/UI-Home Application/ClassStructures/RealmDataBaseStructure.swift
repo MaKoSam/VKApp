@@ -1,18 +1,20 @@
 //
-//  UserClassStructure.swift
+//  RealmDataBaseStructure.swift AKA OWNER CLASS STRUCTURE
 //  UI-Home Application
 //
-//  Created by Sam Mazniker on 08/07/2019.
+//  Created by Sam Mazniker on 26/07/2019.
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import Foundation
+//OWNER STRUCTURE FOR REALM
+
 import ObjectMapper
 import RealmSwift
 
 
-class ServerUserResponse: Mappable {
-    var response: [User] = []
+
+class ServerOwnerResponse: Mappable {
+    var response = Owner()
     
     required init?(map: Map) { }
     func mapping(map: Map) {
@@ -20,14 +22,21 @@ class ServerUserResponse: Mappable {
     }
 }
 
-class User: Object, Mappable{
-    @objc dynamic var id: Int = 0
+
+class Owner: Object, Mappable {
     @objc dynamic var full_name: String = ""
     @objc dynamic var first_name: String = ""
     @objc dynamic var last_name: String = ""
+    @objc dynamic var sex: Int = 0
+    @objc dynamic var bdate: String = ""
+    @objc dynamic var bdate_visibility: Int = 0
+    @objc dynamic var home_town: String? = nil
     @objc dynamic var status: String? = nil
-    @objc dynamic var avatar_small: String? = nil
-    @objc dynamic var avatar_profile: String? = nil
+    @objc dynamic var phone: String? = nil
+        
+    let friends = List<User>()
+    let communities = List<Group>()
+    
     
     
     required convenience init(map: Map) {
@@ -36,13 +45,15 @@ class User: Object, Mappable{
     }
     
     func mapping(map: Map) {
-        id <- map["id"]
         first_name <- map["first_name"]
         last_name <- map["last_name"]
+        sex <- map["sex"]
+        bdate <- map["bdate"]
+        bdate_visibility <- map["bdate_visibility"]
+        home_town <- map["home_town"]
         status <- map["status"]
-        avatar_small <- map["photo_50"]
-        avatar_profile <- map["photo_200_orig"]
+        phone <- map["phone"]
+        
         full_name = "\(first_name.lowercased()) \(last_name.lowercased())"
     }
-
 }

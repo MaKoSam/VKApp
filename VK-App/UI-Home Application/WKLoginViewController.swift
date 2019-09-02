@@ -69,9 +69,9 @@ extension WKLoginViewController: WKNavigationDelegate {
         
         print(Session.instance.app_token)
         if Session.instance.app_token != nil {
+            print("performing segue")
             performSegue(withIdentifier: "signIn", sender: nil)
         }
-        
         
         decisionHandler(.cancel)
     }

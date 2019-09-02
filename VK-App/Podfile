@@ -9,6 +9,7 @@ target 'UI-Home Application' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'AlamofireObjectMapper'
   pod 'SwiftKeychainWrapper'
+  pod 'RealmSwift'
 
   # Pods for UI-Home Application
 
