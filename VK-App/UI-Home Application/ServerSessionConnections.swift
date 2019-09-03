@@ -160,6 +160,7 @@ class ServerTusks {
                     user.communities.append(elements)
                 }
             }
+            print(realm.configuration.fileURL)
         } catch {
             print(error)
         }
