@@ -11,6 +11,7 @@
 		041A11D1231D19A700D8B772 /* RealmDataBaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D0231D19A700D8B772 /* RealmDataBaseStructure.swift */; };
 		041A11D4231D1CB400D8B772 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D3231D1CB400D8B772 /* StartViewController.swift */; };
 		041A11D7231E2BCB00D8B772 /* TextPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D6231E2BCB00D8B772 /* TextPostCell.swift */; };
+		041A11D9231FDDCE00D8B772 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */; };
 		041F29F322E5C227007AAD69 /* FollowersIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 041F29F122E5C227007AAD69 /* FollowersIcon.png */; };
 		041F29F422E5C227007AAD69 /* PostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 041F29F222E5C227007AAD69 /* PostIcon.png */; };
 		0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803022D36E56000FEA78 /* UserClassStructure.swift */; };
@@ -44,6 +45,7 @@
 		041A11D3231D1CB400D8B772 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ../../../Downloads/StartViewController.swift; sourceTree = "<group>"; };
 		041A11D5231D1CB700D8B772 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		041A11D6231E2BCB00D8B772 /* TextPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostCell.swift; sourceTree = "<group>"; };
+		041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
 		041F29F122E5C227007AAD69 /* FollowersIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FollowersIcon.png; sourceTree = "<group>"; };
 		041F29F222E5C227007AAD69 /* PostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostIcon.png; sourceTree = "<group>"; };
 		0432803022D36E56000FEA78 /* UserClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassStructure.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				8B0959662243C31000CABE05 /* NewsViewController.swift */,
 				041A11D6231E2BCB00D8B772 /* TextPostCell.swift */,
+				041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */,
 			);
 			name = "News Page";
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
 				0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */,
 				04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */,
+				041A11D9231FDDCE00D8B772 /* UserPhotoView.swift in Sources */,
 				0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */,
 				DB87C0452234E33F0092E26F /* FriendListViewController.swift in Sources */,
 				DBB263DC2240C23A00D864CD /* AudienceActivityView.swift in Sources */,

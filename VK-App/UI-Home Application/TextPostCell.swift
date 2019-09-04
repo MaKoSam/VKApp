@@ -11,7 +11,7 @@ import UIKit
 class TextPostCell: UITableViewCell {
     
     @IBOutlet weak var PostCoverView: UIView!
-    @IBOutlet weak var UserAvatarView: UIView!
+    @IBOutlet weak var UserAvatar: UserPhotoView!
     @IBOutlet weak var UserNameView: UIView!
     @IBOutlet weak var PostText: UILabel!
     @IBOutlet weak var PostPhotoCollection: UICollectionView!
@@ -20,7 +20,8 @@ class TextPostCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        PostCoverView.layer.cornerRadius = CGFloat(20)
+        UserNameView.layer.cornerRadius = CGFloat(10)
     }
     
 
