@@ -143,8 +143,7 @@ extension FriendListViewController : UITableViewDataSource {
         newCell.friendLastName.text = currentSection[indexPath.row].last_name
         
         if let imageURL = currentSection[indexPath.row].avatar_small {
-            let healper = DispatchQueue.global(qos: .background)
-            healper.async {
+            DispatchQueue.global(qos: .userInitiated).async {
                 let url = URL(string: imageURL)
                 do {
                     let data = try Data(contentsOf: url!)

@@ -15,14 +15,17 @@ class StartViewController: UIViewController {
     
     var loadIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    
     func updateInstalledData(completionHandler: @escaping() -> Void){
-        DispatchQueue.main.async {
+        
+        DispatchQueue.global(qos: .utility).async {
             
             ServerTusks.instance.downloadOwnerData(){
                 [weak self] downloadedOwner in
                 ServerTusks.instance.saveOwner(downloadedOwner)
-                self?.ProfileName.text = "\(downloadedOwner.first_name) \(downloadedOwner.last_name)"
-                
+                DispatchQueue.main.async {
+                    self?.ProfileName.text = "\(downloadedOwner.first_name) \(downloadedOwner.last_name)"
+                }
                 
                 ServerTusks.instance.downloadFriendData(){
                     [weak self] friendList in
@@ -31,13 +34,13 @@ class StartViewController: UIViewController {
                     ServerTusks.instance.downloadGroupData(){
                         [weak self] groupList in
                         ServerTusks.instance.saveOwnerGroups(downloadedOwner, groupList)
-                        
-                        completionHandler()
                     }
                 }
             }
+            completionHandler()
         }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
@@ -47,11 +50,13 @@ class StartViewController: UIViewController {
         view.addSubview(loadIndicator)
         loadIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-        updateInstalledData{
-            [weak self] in
-            
-            self?.loadIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
+        DispatchQueue.global(qos: .utility).async {
+            updateInstalledData{
+                [weak self] in
+                
+                self?.loadIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
         }
     }
     

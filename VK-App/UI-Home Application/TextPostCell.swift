@@ -16,6 +16,10 @@ class TextPostCell: UITableViewCell {
     @IBOutlet weak var PostText: UILabel!
     @IBOutlet weak var PostPhotoCollection: UICollectionView!
     @IBOutlet weak var StatisticsView: UIView!
+    @IBOutlet weak var LikeState: UIImageView!
+    @IBOutlet weak var LikeCount: UILabel!
+    @IBOutlet weak var CommentCount: UILabel!
+    @IBOutlet weak var ReviewCount: UILabel!
     
     
     override func awakeFromNib() {
