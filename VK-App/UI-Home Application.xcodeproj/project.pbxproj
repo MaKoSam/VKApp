@@ -20,6 +20,7 @@
 		046908B2232149EB00123222 /* nolike.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908AE232149EB00123222 /* nolike.png */; };
 		04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB20E222CDE09900618D22 /* WKLoginViewController.swift */; };
 		04AB20E522CDE47300618D22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AB20E422CDE47300618D22 /* WebKit.framework */; };
+		04ADD76A2327E7F50081250D /* RealmDatabaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */; };
 		04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F222DCA972000DB775 /* ProfilePageViewController.swift */; };
 		04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */; };
 		04C819F722DCAB38000DB775 /* ProfileHeadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */; };
@@ -56,6 +57,7 @@
 		046908AE232149EB00123222 /* nolike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nolike.png; path = Icons/nolike.png; sourceTree = "<group>"; };
 		04AB20E222CDE09900618D22 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		04AB20E422CDE47300618D22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseActions.swift; sourceTree = "<group>"; };
 		04C819F222DCA972000DB775 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeadView.swift; sourceTree = "<group>"; };
 		04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeadPhoto.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				041A11D2231D1C9300D8B772 /* Start Page */,
 				0432803422D371DB000FEA78 /* ClassStructures */,
 				0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */,
+				04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */,
 				DBB263DB2240C23A00D864CD /* AudienceActivityView.swift */,
 				04C819F122DCA8F1000DB775 /* Profile Page */,
 				8B0959682243C41C00CABE05 /* News Page */,
@@ -368,6 +371,7 @@
 				DB87C0662236102B0092E26F /* CommunityTableViewCell.swift in Sources */,
 				8B26BB1722452EA400B08579 /* FriendsClassStructure.swift in Sources */,
 				04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */,
+				04ADD76A2327E7F50081250D /* RealmDatabaseActions.swift in Sources */,
 				22C20D29232774100051D13B /* RealmDataBaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

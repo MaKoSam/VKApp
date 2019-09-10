@@ -33,8 +33,8 @@ class NewsFeedInternal: Mappable{
 class NewsFeedPost: Mappable{
     var type: String = ""
     var source_id: Int = 0
-//    var UNIXdate: Double = 0.0
-//    var date: String = ""
+    var UNIXdate: Double = 0.0
+    var date: String = ""
     var text: String = ""
     
     
@@ -43,12 +43,12 @@ class NewsFeedPost: Mappable{
     func mapping(map: Map) {
         type <- map["type"]
         source_id <- map["source_id"]
-//        UNIXdate <- map["date"]
-//
-//        let NSdate = NSDate(timeIntervalSince1970: UNIXdate)
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MMM dd YYYY hh:mm a"
-//        date = formatter.string(from: NSdate as Date)
+        UNIXdate <- map["date"]
+
+        let NSdate = NSDate(timeIntervalSince1970: UNIXdate)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd YYYY hh:mm a"
+        date = formatter.string(from: NSdate as Date)
         
         text <- map["text"]
     }

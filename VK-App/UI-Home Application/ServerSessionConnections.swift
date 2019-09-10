@@ -6,7 +6,6 @@
 //  Copyright © 2019 Developer. All rights reserved.
 //
 
-import RealmSwift
 import Alamofire
 import AlamofireObjectMapper
 
@@ -38,7 +37,6 @@ class ServerTusks {
             "access_token": Session.instance.app_token!,
             "v": "5.101"
         ]
-        
         NetworkSession.custom.request("https://api.vk.com/method/account.getProfileInfo", parameters: parameters)
             .responseObject { (VKResponse: DataResponse<ServerOwnerResponse>) in
                 let result = VKResponse.result
@@ -66,11 +64,9 @@ class ServerTusks {
                     var user_ids: String = ""
                     for elements in response.response!.items { user_ids += "\(elements)," }
                     
-                    DispatchQueue.main.async {
-                        self.downloadUsersData(user_ids){
-                            [weak self] friendList in
-                            completionHeandler(friendList)
-                        }
+                    self.downloadUsersData(user_ids){
+                        [weak self] friendList in
+                        completionHeandler(friendList)
                     }
                 }
         }
@@ -114,7 +110,7 @@ class ServerTusks {
         }
     }
     
-    func downloadNewsFeed(completionHeandler: @escaping (/*[NewsFeedPost]*/) -> Void){
+    func downloadNewsFeed(completionHeandler: @escaping ([NewsFeedPost]) -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
             "filters": "post",
@@ -125,72 +121,13 @@ class ServerTusks {
         NetworkSession.custom.request("https://api.vk.com/method/newsfeed.get", parameters: parameters)
             .responseObject { (VKResponse: DataResponse<ServerNewsFeedResponse>) in
                 let result = VKResponse.result
-                
                 switch result{
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    print(response.response)
-//                    print(response.response?.items.count)
-//                    for elements in response.response!.items {
-//                        print(elements.text, "\n")
-//                        print(elements.date, "\n---\n")
-//                    }
-                    completionHeandler()
-//                    completionHeandler( response.response!.items )
+                    completionHeandler( response.response!.items )
                 }
         }
     }
-
     
-    func saveOwner(_  user: Owner){
-        do {
-            let realm = try Realm()
-            print(realm.configuration.fileURL)
-            let oldOwner = realm.objects(Owner.self)
-            realm.beginWrite()
-            realm.delete(oldOwner)
-            realm.add(user)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func saveOwnerFriends(_ user: Owner, _ friendList: [User]){
-        do {
-            let realm = try Realm()
-            let oldFriends = realm.objects(User.self)
-            realm.beginWrite()
-            realm.delete(oldFriends)
-            try realm.commitWrite()
-            
-            try realm.write {
-                for elements in friendList {
-                    user.friends.append(elements)
-                }
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    func saveOwnerGroups(_ user: Owner, _ groupList: [Group]){
-        do {
-            let realm = try Realm()
-            let oldGroups = realm.objects(Group.self)
-            realm.beginWrite()
-            realm.delete(oldGroups)
-            try realm.commitWrite()
-            
-            try realm.write {
-                for elements in groupList {
-                    user.communities.append(elements)
-                }
-            }
-            print(realm.configuration.fileURL)
-        } catch {
-            print(error)
-        }
-    }
 }
