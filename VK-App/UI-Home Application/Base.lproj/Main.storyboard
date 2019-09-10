@@ -45,8 +45,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" id="Dis-d4-mO7"/>
                     <connections>
-                        <outlet property="ProfileAvatar" destination="vWt-74-t44" id="VLe-9s-AoZ"/>
-                        <outlet property="ProfileName" destination="e1d-ao-slY" id="vWK-fW-6uJ"/>
+                        <outlet property="ProfileName" destination="e1d-ao-slY" id="EHy-CY-1ko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZR-22-n8n" userLabel="First Responder" sceneMemberID="firstResponder"/>

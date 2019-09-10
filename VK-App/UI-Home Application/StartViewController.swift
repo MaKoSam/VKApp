@@ -9,7 +9,7 @@
 import UIKit
 
 class StartViewController: UIViewController {
-    @IBOutlet weak var ProfileAvatar: UIImageView!
+    
     @IBOutlet weak var ProfileName: UILabel!
     
     

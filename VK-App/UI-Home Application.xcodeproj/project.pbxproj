@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0410DF3322D32D9B0036445B /* ServerSessionConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */; };
-		041A11D1231D19A700D8B772 /* RealmDataBaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D0231D19A700D8B772 /* RealmDataBaseStructure.swift */; };
-		041A11D4231D1CB400D8B772 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D3231D1CB400D8B772 /* StartViewController.swift */; };
 		041A11D7231E2BCB00D8B772 /* TextPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D6231E2BCB00D8B772 /* TextPostCell.swift */; };
 		041A11D9231FDDCE00D8B772 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */; };
 		0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803022D36E56000FEA78 /* UserClassStructure.swift */; };
@@ -25,6 +23,9 @@
 		04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F222DCA972000DB775 /* ProfilePageViewController.swift */; };
 		04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */; };
 		04C819F722DCAB38000DB775 /* ProfileHeadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */; };
+		22C20D29232774100051D13B /* RealmDataBaseStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20D282327740F0051D13B /* RealmDataBaseStructure.swift */; };
+		22C20D2B232778330051D13B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20D2A232778330051D13B /* StartViewController.swift */; };
+		22C20D2D2327795A0051D13B /* NewsFeedClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20D2C2327795A0051D13B /* NewsFeedClassStructure.swift */; };
 		2AA3E4BBC49CEA846AAF228E /* Pods_UI_Home_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4235CDA4BAFC7C7773E3510 /* Pods_UI_Home_Application.framework */; };
 		8B0959672243C31000CABE05 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0959662243C31000CABE05 /* NewsViewController.swift */; };
 		8B26BB1722452EA400B08579 /* FriendsClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26BB1622452EA400B08579 /* FriendsClassStructure.swift */; };
@@ -43,9 +44,6 @@
 
 /* Begin PBXFileReference section */
 		0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSessionConnections.swift; sourceTree = "<group>"; };
-		041A11D0231D19A700D8B772 /* RealmDataBaseStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmDataBaseStructure.swift; path = "../../../../Documents/VKApp/VK-App/UI-Home Application/ClassStructures/RealmDataBaseStructure.swift"; sourceTree = "<group>"; };
-		041A11D3231D1CB400D8B772 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ../../../Downloads/StartViewController.swift; sourceTree = "<group>"; };
-		041A11D5231D1CB700D8B772 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		041A11D6231E2BCB00D8B772 /* TextPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostCell.swift; sourceTree = "<group>"; };
 		041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
 		0432803022D36E56000FEA78 /* UserClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassStructure.swift; sourceTree = "<group>"; };
@@ -61,6 +59,9 @@
 		04C819F222DCA972000DB775 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeadView.swift; sourceTree = "<group>"; };
 		04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeadPhoto.swift; sourceTree = "<group>"; };
+		22C20D282327740F0051D13B /* RealmDataBaseStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataBaseStructure.swift; sourceTree = "<group>"; };
+		22C20D2A232778330051D13B /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = "UI-Home Application/StartViewController.swift"; sourceTree = SOURCE_ROOT; };
+		22C20D2C2327795A0051D13B /* NewsFeedClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedClassStructure.swift; sourceTree = "<group>"; };
 		22D041657188665502643C9B /* Pods-UI-Home Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI-Home Application.release.xcconfig"; path = "Target Support Files/Pods-UI-Home Application/Pods-UI-Home Application.release.xcconfig"; sourceTree = "<group>"; };
 		8B0959662243C31000CABE05 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8B26BB1622452EA400B08579 /* FriendsClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsClassStructure.swift; sourceTree = "<group>"; };
@@ -97,7 +98,7 @@
 		041A11D2231D1C9300D8B772 /* Start Page */ = {
 			isa = PBXGroup;
 			children = (
-				041A11D5231D1CB700D8B772 /* StartViewController.swift */,
+				22C20D2A232778330051D13B /* StartViewController.swift */,
 			);
 			path = "Start Page";
 			sourceTree = "<group>";
@@ -105,10 +106,11 @@
 		0432803422D371DB000FEA78 /* ClassStructures */ = {
 			isa = PBXGroup;
 			children = (
-				041A11D0231D19A700D8B772 /* RealmDataBaseStructure.swift */,
+				22C20D282327740F0051D13B /* RealmDataBaseStructure.swift */,
 				0432803022D36E56000FEA78 /* UserClassStructure.swift */,
 				8B26BB1622452EA400B08579 /* FriendsClassStructure.swift */,
 				0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */,
+				22C20D2C2327795A0051D13B /* NewsFeedClassStructure.swift */,
 			);
 			path = ClassStructures;
 			sourceTree = "<group>";
@@ -174,7 +176,6 @@
 				8BB35768222CCED700B7792A /* Assets.xcassets */,
 				8BB3576A222CCED700B7792A /* LaunchScreen.storyboard */,
 				8BB3576D222CCED700B7792A /* Info.plist */,
-				041A11D3231D1CB400D8B772 /* StartViewController.swift */,
 				041A11D2231D1C9300D8B772 /* Start Page */,
 				0432803422D371DB000FEA78 /* ClassStructures */,
 				0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */,
@@ -349,10 +350,11 @@
 			files = (
 				041A11D7231E2BCB00D8B772 /* TextPostCell.swift in Sources */,
 				DB87C064223610060092E26F /* CommunityListViewController.swift in Sources */,
+				22C20D2D2327795A0051D13B /* NewsFeedClassStructure.swift in Sources */,
 				04C819F722DCAB38000DB775 /* ProfileHeadPhoto.swift in Sources */,
-				041A11D1231D19A700D8B772 /* RealmDataBaseStructure.swift in Sources */,
 				8B0959672243C31000CABE05 /* NewsViewController.swift in Sources */,
 				DBB263DA2240BD7400D864CD /* FriendTableBarPhoto.swift in Sources */,
+				22C20D2B232778330051D13B /* StartViewController.swift in Sources */,
 				04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */,
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
 				0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */,
@@ -363,10 +365,10 @@
 				DBB263DC2240C23A00D864CD /* AudienceActivityView.swift in Sources */,
 				0410DF3322D32D9B0036445B /* ServerSessionConnections.swift in Sources */,
 				DB87C0492234E9E00092E26F /* FriendTableViewCell.swift in Sources */,
-				041A11D4231D1CB400D8B772 /* StartViewController.swift in Sources */,
 				DB87C0662236102B0092E26F /* CommunityTableViewCell.swift in Sources */,
 				8B26BB1722452EA400B08579 /* FriendsClassStructure.swift in Sources */,
 				04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */,
+				22C20D29232774100051D13B /* RealmDataBaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

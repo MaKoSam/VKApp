@@ -95,7 +95,6 @@ class ServerTusks {
         }
     }
     
-    
     func downloadGroupData(completionHeandler: @escaping ([Group]) -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
@@ -114,6 +113,35 @@ class ServerTusks {
                 }
         }
     }
+    
+    func downloadNewsFeed(completionHeandler: @escaping (/*[NewsFeedPost]*/) -> Void){
+        let parameters: Parameters = [
+            "access_token": Session.instance.app_token!,
+            "filters": "post",
+            "source_ids": "friends,groups",
+            "count": "10",
+            "v": "5.101"
+        ]
+        NetworkSession.custom.request("https://api.vk.com/method/newsfeed.get", parameters: parameters)
+            .responseObject { (VKResponse: DataResponse<ServerNewsFeedResponse>) in
+                let result = VKResponse.result
+                
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let response):
+                    print(response.response)
+//                    print(response.response?.items.count)
+//                    for elements in response.response!.items {
+//                        print(elements.text, "\n")
+//                        print(elements.date, "\n---\n")
+//                    }
+                    completionHeandler()
+//                    completionHeandler( response.response!.items )
+                }
+        }
+    }
+
     
     func saveOwner(_  user: Owner){
         do {

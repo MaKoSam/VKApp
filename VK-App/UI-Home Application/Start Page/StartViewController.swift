@@ -9,7 +9,7 @@
 import UIKit
 
 class StartViewController: UIViewController {
-    @IBOutlet weak var ProfileAvatar: UIImageView!
+    
     @IBOutlet weak var ProfileName: UILabel!
     
     
@@ -18,7 +18,7 @@ class StartViewController: UIViewController {
     
     func updateInstalledData(completionHandler: @escaping() -> Void){
         
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.main.async {
             
             ServerTusks.instance.downloadOwnerData(){
                 [weak self] downloadedOwner in
