@@ -110,6 +110,24 @@ class ServerTusks {
         }
     }
     
+    func downloadGroupById(_ ids: String, completionHeandler: @escaping ([GroupById]) -> Void){
+        let parameters: Parameters = [
+            "access_token": Session.instance.app_token!,
+            "group_id" : ids,
+            "v": "5.101"
+        ]
+        NetworkSession.custom.request("https://api.vk.com/method/groups.getById", parameters: parameters)
+            .responseObject { (VKResponse: DataResponse<ServerGroupByIdResponse>) in
+                let result = VKResponse.result
+                switch result{
+                case .failure(let error):
+                    print(error)
+                case .success(let response):
+                    completionHeandler(response.response)
+                }
+        }
+    }
+    
     func downloadNewsFeed(completionHeandler: @escaping ([NewsFeedPost]) -> Void){
         let parameters: Parameters = [
             "access_token": Session.instance.app_token!,
