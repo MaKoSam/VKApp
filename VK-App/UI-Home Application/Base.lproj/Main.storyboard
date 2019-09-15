@@ -171,7 +171,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="355" id="BhX-n4-cKm"/>
                                                             </constraints>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KE4-Rr-KKi">
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KE4-Rr-KKi">
                                                                 <size key="itemSize" width="350" height="350"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -179,7 +179,7 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="N6d-co-Ooc" customClass="PhotoAttachmentCell" customModule="UI_Home_Application" customModuleProvider="target">
-                                                                    <rect key="frame" x="17" y="0.0" width="350" height="350"/>
+                                                                    <rect key="frame" x="0.0" y="2.5" width="350" height="350"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
@@ -201,7 +201,7 @@
                                                                     </connections>
                                                                 </collectionViewCell>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="link" id="Zfp-VM-tKc" customClass="LinkAttachmentCell" customModule="UI_Home_Application" customModuleProvider="target">
-                                                                    <rect key="frame" x="17" y="360" width="350" height="350"/>
+                                                                    <rect key="frame" x="360" y="2.5" width="350" height="350"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>

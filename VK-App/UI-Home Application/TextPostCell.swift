@@ -82,17 +82,20 @@ extension TextPostCell : UICollectionViewDataSource {
                 DispatchQueue.main.async {
                     newCell.link.titleLabel?.text = linkAttached.url
                 }
-                DispatchQueue.global(qos: .utility).async {
-                    
-                    let url = URL(string: linkAttached.imageURL)
-                    if let imgURL = url {
-                        do {
-                            let data = try Data(contentsOf: imgURL)
-                            DispatchQueue.main.async {
-                                newCell.linkImage.image = UIImage(data: data)
+                if let photoCover = linkAttached.coverPhoto {
+                    for elements in photoCover.imageURL{
+                        if elements.type == "x" {
+                            DispatchQueue.global(qos: .utility).async {
+                                let url = URL(string: elements.URL)
+                                do {
+                                    let data = try Data(contentsOf: url!)
+                                    DispatchQueue.main.async {
+                                        newCell.linkImage.image = UIImage(data: data)
+                                    }
+                                } catch {
+                                    print(error)
+                                }
                             }
-                        } catch {
-                            print(error)
                         }
                     }
                 }

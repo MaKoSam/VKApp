@@ -129,7 +129,7 @@ class Link: Mappable{
     var url: String = ""
     var title: String = ""
     var description: String = ""
-    var imageURL: String = ""
+    var coverPhoto: Photo? = nil
     
     required init?(map: Map) { }
     
@@ -137,12 +137,13 @@ class Link: Mappable{
         url <- map["url"]
         title <- map["title"]
         description <- map["description"]
-        imageURL <- map["image_scr"]
+        coverPhoto <- map["photo"]
     }
 }
 
 class Likes: Mappable {
     var count: Int = 0
+    
     required init?(map: Map) { }
     
     func mapping(map: Map) {
