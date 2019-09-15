@@ -14,34 +14,24 @@ class NewsViewController: UIViewController {
     
     var newsPosts: [NewsFeedPost] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+    func downloadNewsFeed(){
         
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            ServerTusks.instance.downloadNewsFeed() {
-                [weak self]  news in
-                DispatchQueue.main.async {
-                    self?.newsPosts = news
-                    for elemets in self!.newsPosts {
-                        print("insider")
-                        print(elemets.source_id, "\n\n")
-                    }
-                }
+        ServerTusks.instance.downloadNewsFeed() {
+            [weak self]  news in
+            self?.newsPosts = news
+            for elemets in self!.newsPosts {
+                print("serverInstance:", elemets.source_id)
             }
+            print("\n");
+            self?.NewsTableView.reloadData()
         }
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        downloadNewsFeed()
         NewsTableView.dataSource = self
         NewsTableView.register(UINib(nibName: "textPost", bundle: Bundle.main), forCellReuseIdentifier: "postCell")
-        print("outsider, not in table")
-        for elemets in newsPosts {
-            print(elemets.source_id, "\n\n")
-        }
     }
 
 }
@@ -49,17 +39,17 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 1
+        return newsPosts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = NewsTableView.dequeueReusableCell(withIdentifier: "textPost", for: indexPath) as! TextPostCell
-        print("outsider, in table")
-        for elemets in newsPosts {
-            print(elemets.source_id, "\n\n")
-        }
-//        newCell.PostText.text = "\(newsPosts[indexPath.row].text) \(newsPosts[indexPath.row].date)"
+        
+        newCell.LikeCount.text = "\(newsPosts[indexPath.row].likes!.count)"
+        newCell.CommentCount.text = "\(newsPosts[indexPath.row].comments!.count)"
+        newCell.ReviewCount.text = "\(newsPosts[indexPath.row].views!.count)"
+        newCell.PostText.text = "\(newsPosts[indexPath.row].text) \(newsPosts[indexPath.row].date)"
+        
         return newCell
     }
 
