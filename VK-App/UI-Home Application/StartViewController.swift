@@ -25,6 +25,7 @@ class StartViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self?.ProfileName.text = "\(downloadedOwner.first_name) \(downloadedOwner.last_name)"
+                    CompletionHeandler()
                 }
             }
             
@@ -41,32 +42,31 @@ class StartViewController: UIViewController {
             }
         }
         
-        CompletionHeandler()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-//        loadIndicator.center = self.view.center
-//        loadIndicator.hidesWhenStopped = true
-//        loadIndicator.style = .gray
-//        view.addSubview(loadIndicator)
-//        loadIndicator.startAnimating()
-//        UIApplication.shared.beginIgnoringInteractionEvents()
+        loadIndicator.center = self.view.center
+        loadIndicator.hidesWhenStopped = true
+        loadIndicator.style = .gray
+        view.addSubview(loadIndicator)
+        loadIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         
-        DispatchQueue.global(qos: .utility).async {
-            self.updateInstalledData{
-                [weak self] in
-                print("Im Out")
-            }
-        }
-        
-//        updateInstalledData{
-//            [weak self] in
-//
-//            self?.loadIndicator.stopAnimating()
-//            UIApplication.shared.endIgnoringInteractionEvents()
+//        DispatchQueue.global(qos: .utility).async {
+//            self.updateInstalledData{
+//                [weak self] in
+//                print("Im Out")
+//            }
 //        }
+        
+        updateInstalledData{
+            [weak self] in
+
+            self?.loadIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
     
     
