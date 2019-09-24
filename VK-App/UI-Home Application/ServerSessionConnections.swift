@@ -19,7 +19,7 @@ class Session {
 }
 
 
-private class NetworkSession {
+private final class NetworkSession {
     static let custom: Alamofire.Session = {
         let configuration = URLSessionConfiguration.default
         let sessionManager = Alamofire.Session(configuration: configuration)
@@ -28,7 +28,7 @@ private class NetworkSession {
 }
 
 
-class ServerTusks {
+final class ServerTusks {
     static let instance = ServerTusks()
     private init(){ }
     
@@ -44,7 +44,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completionHeandler(response.response)
+                    DispatchQueue.main.async {
+                        completionHeandler(response.response)
+                    }
                 }
         }
     }
@@ -66,7 +68,9 @@ class ServerTusks {
                     
                     self.downloadUsersData(user_ids){
                         [weak self] friendList in
-                        completionHeandler(friendList)
+                        DispatchQueue.main.async {
+                            completionHeandler(friendList)
+                        }
                     }
                 }
         }
@@ -86,7 +90,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completion(response.response)
+                    DispatchQueue.main.async {
+                        completion(response.response)
+                    }
                 }
         }
     }
@@ -105,7 +111,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completionHeandler(response.response!.items)
+                    DispatchQueue.main.async {
+                        completionHeandler(response.response!.items)
+                    }
                 }
         }
     }
@@ -123,7 +131,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completionHeandler(response.response)
+                    DispatchQueue.main.async {
+                        completionHeandler(response.response)
+                    }
                 }
         }
     }
@@ -143,7 +153,9 @@ class ServerTusks {
                 case .failure(let error):
                     print(error)
                 case .success(let response):
-                    completionHeandler( response.response!.items )
+                    DispatchQueue.main.async {
+                        completionHeandler(response.response!.items)
+                    }
                 }
         }
     }

@@ -12,6 +12,7 @@
 		041A11D9231FDDCE00D8B772 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */; };
 		0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803022D36E56000FEA78 /* UserClassStructure.swift */; };
 		0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */; };
+		045782162338B0BC00B4F146 /* AttachmentClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */; };
 		046908A9232148CD00123222 /* PostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908A7232148CD00123222 /* PostIcon.png */; };
 		046908AA232148CD00123222 /* FollowersIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908A8232148CD00123222 /* FollowersIcon.png */; };
 		046908AF232149EB00123222 /* review.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908AB232149EB00123222 /* review.png */; };
@@ -52,6 +53,7 @@
 		041A11D8231FDDCE00D8B772 /* UserPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
 		0432803022D36E56000FEA78 /* UserClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassStructure.swift; sourceTree = "<group>"; };
 		0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsClassStructure.swift; sourceTree = "<group>"; };
+		045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentClassStructure.swift; sourceTree = "<group>"; };
 		046908A7232148CD00123222 /* PostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PostIcon.png; path = Icons/PostIcon.png; sourceTree = "<group>"; };
 		046908A8232148CD00123222 /* FollowersIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FollowersIcon.png; path = Icons/FollowersIcon.png; sourceTree = "<group>"; };
 		046908AB232149EB00123222 /* review.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = review.png; path = Icons/review.png; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */,
 				04D86B97232E16F000FCB828 /* GroupsByIdClassStructure.swift */,
 				22C20D2C2327795A0051D13B /* NewsFeedClassStructure.swift */,
+				045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */,
 			);
 			path = ClassStructures;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				DBB263DA2240BD7400D864CD /* FriendTableBarPhoto.swift in Sources */,
 				22C20D2B232778330051D13B /* StartViewController.swift in Sources */,
 				04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */,
+				045782162338B0BC00B4F146 /* AttachmentClassStructure.swift in Sources */,
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
 				04D86B94232E0E3000FCB828 /* PhotoAttachmentCell.swift in Sources */,
 				0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */,
