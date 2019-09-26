@@ -21,7 +21,6 @@ class RealmDatabaseActions {
             realm.delete(oldOwner)
             realm.add(user)
             try realm.commitWrite()
-            print("Owner written")
         } catch {
             print(error)
         }
@@ -42,7 +41,6 @@ class RealmDatabaseActions {
                         user.friends.append(elements)
                     }
                 }
-                print("Friends written")
             }
         } catch {
             print(error)
@@ -64,7 +62,6 @@ class RealmDatabaseActions {
                         user.communities.append(elements)
                     }
                 }
-                print("Groups written")
             }
         } catch {
             print(error)

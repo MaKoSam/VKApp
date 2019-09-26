@@ -13,6 +13,8 @@
 		0432803122D36E56000FEA78 /* UserClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803022D36E56000FEA78 /* UserClassStructure.swift */; };
 		0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */; };
 		045782162338B0BC00B4F146 /* AttachmentClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */; };
+		04578218233CE05100B4F146 /* ConstructorURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04578217233CE05100B4F146 /* ConstructorURL.swift */; };
+		0457821B233CE62200B4F146 /* StartModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457821A233CE62200B4F146 /* StartModule.swift */; };
 		046908A9232148CD00123222 /* PostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908A7232148CD00123222 /* PostIcon.png */; };
 		046908AA232148CD00123222 /* FollowersIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908A8232148CD00123222 /* FollowersIcon.png */; };
 		046908AF232149EB00123222 /* review.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908AB232149EB00123222 /* review.png */; };
@@ -54,6 +56,8 @@
 		0432803022D36E56000FEA78 /* UserClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassStructure.swift; sourceTree = "<group>"; };
 		0432803222D36EEE000FEA78 /* GroupsClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsClassStructure.swift; sourceTree = "<group>"; };
 		045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentClassStructure.swift; sourceTree = "<group>"; };
+		04578217233CE05100B4F146 /* ConstructorURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorURL.swift; sourceTree = "<group>"; };
+		0457821A233CE62200B4F146 /* StartModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModule.swift; sourceTree = "<group>"; };
 		046908A7232148CD00123222 /* PostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PostIcon.png; path = Icons/PostIcon.png; sourceTree = "<group>"; };
 		046908A8232148CD00123222 /* FollowersIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FollowersIcon.png; path = Icons/FollowersIcon.png; sourceTree = "<group>"; };
 		046908AB232149EB00123222 /* review.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = review.png; path = Icons/review.png; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				22C20D2A232778330051D13B /* StartViewController.swift */,
+				0457821A233CE62200B4F146 /* StartModule.swift */,
 			);
 			path = "Start Page";
 			sourceTree = "<group>";
@@ -125,6 +130,15 @@
 				045782152338B0BC00B4F146 /* AttachmentClassStructure.swift */,
 			);
 			path = ClassStructures;
+			sourceTree = "<group>";
+		};
+		04578219233CE05D00B4F146 /* Server Connections */ = {
+			isa = PBXGroup;
+			children = (
+				04578217233CE05100B4F146 /* ConstructorURL.swift */,
+				0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */,
+			);
+			name = "Server Connections";
 			sourceTree = "<group>";
 		};
 		04C819F122DCA8F1000DB775 /* Profile Page */ = {
@@ -192,7 +206,7 @@
 				8BB3576D222CCED700B7792A /* Info.plist */,
 				041A11D2231D1C9300D8B772 /* Start Page */,
 				0432803422D371DB000FEA78 /* ClassStructures */,
-				0410DF3222D32D9B0036445B /* ServerSessionConnections.swift */,
+				04578219233CE05D00B4F146 /* Server Connections */,
 				04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */,
 				DBB263DB2240C23A00D864CD /* AudienceActivityView.swift */,
 				04C819F122DCA8F1000DB775 /* Profile Page */,
@@ -374,6 +388,7 @@
 				04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */,
 				045782162338B0BC00B4F146 /* AttachmentClassStructure.swift in Sources */,
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
+				04578218233CE05100B4F146 /* ConstructorURL.swift in Sources */,
 				04D86B94232E0E3000FCB828 /* PhotoAttachmentCell.swift in Sources */,
 				0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */,
 				04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */,
@@ -388,6 +403,7 @@
 				8B26BB1722452EA400B08579 /* FriendsClassStructure.swift in Sources */,
 				04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */,
 				04ADD76A2327E7F50081250D /* RealmDatabaseActions.swift in Sources */,
+				0457821B233CE62200B4F146 /* StartModule.swift in Sources */,
 				22C20D29232774100051D13B /* RealmDataBaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

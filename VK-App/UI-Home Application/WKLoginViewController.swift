@@ -30,15 +30,13 @@ class WKLoginViewController: UIViewController {
             URLQueryItem(name: "client_id", value: Session.instance.client_id),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "270342"),  //262150
+            URLQueryItem(name: "scope", value: "270342"),  //Previous Token = 262150 (No newsFeed)
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.68")
         ]
         
         let request = URLRequest(url: urlComponents.url!)
-        
         WKLoginView.load(request)
-        
     }
 }
 
@@ -62,14 +60,7 @@ extension WKLoginViewController: WKNavigationDelegate {
                 return dict
         }
         
-        Session.instance.app_token = params["access_token"]
-        
-        let saveSuccessful: Bool = KeychainWrapper.standard.set(Session.instance.app_token!, forKey: "VKAccessToken")
-        UserDefaults.standard.set(true, forKey: "isOnline")
-        
-        print(Session.instance.app_token)
-        if Session.instance.app_token != nil {
-            print("performing segue")
+        if StartModule.instance.getStarted(token: params["access_token"]){
             performSegue(withIdentifier: "signIn", sender: nil)
         }
         

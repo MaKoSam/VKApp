@@ -11,8 +11,6 @@
 import ObjectMapper
 import RealmSwift
 
-
-
 class ServerOwnerResponse: Mappable {
     var response = Owner()
     
@@ -21,7 +19,6 @@ class ServerOwnerResponse: Mappable {
         response <- map["response"]
     }
 }
-
 
 class Owner: Object, Mappable {
     @objc dynamic var full_name: String = ""
@@ -36,8 +33,6 @@ class Owner: Object, Mappable {
         
     let friends = List<User>()
     let communities = List<Group>()
-    
-    
     
     required convenience init(map: Map) {
         self.init()
