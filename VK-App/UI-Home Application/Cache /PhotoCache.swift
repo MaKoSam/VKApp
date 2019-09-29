@@ -12,6 +12,9 @@ import UIKit
 
 class PhotoCacheService {
     
+    static let instance = PhotoCacheService(container: UITableView())
+    
+    
     private let cacheLifeTime: TimeInterval = 30 * 24 * 60 * 60
     private static let pathName: String = {
         let pathName = "images"
@@ -102,7 +105,6 @@ class PhotoCacheService {
                         let data = try Data(contentsOf: imageURL)
                         let img = UIImage(data: data)
                         if let image = img {
-//                            self.images[url] = image
                             self.saveImageToChache(url: url, image: image)
                         }
                     } catch {

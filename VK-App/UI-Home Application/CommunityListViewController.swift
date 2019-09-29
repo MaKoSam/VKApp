@@ -13,7 +13,7 @@ class CommunityListViewController: UIViewController {
     
     @IBOutlet weak var CommunityTable: UITableView!
     var myGroups : [Group] = []
-    var myFiltered : [Group] = []
+    
     
     func loadDataFromDataBase(){
         do {
@@ -44,6 +44,8 @@ extension CommunityListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = CommunityTable.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! CommunityTableViewCell
         newCell.CommunityName.text = myGroups[indexPath.row].name
+        let photoService = PhotoCacheService(container: CommunityTable)
+        newCell.CommunityPhoto.image = photoService.photo(atIndexpath: indexPath, byUrl: myGroups[indexPath.row].avatar)
         return newCell
     }
     

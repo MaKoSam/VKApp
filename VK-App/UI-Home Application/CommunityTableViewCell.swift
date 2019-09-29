@@ -10,6 +10,7 @@ import UIKit
 
 class CommunityTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var CommunityPhoto: FriendTableBarPhotoView!
     @IBOutlet weak var CommunityName: UILabel!
     
     override func awakeFromNib() {
