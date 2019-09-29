@@ -42,7 +42,7 @@ class User: Object, Mappable{
         status <- map["status"]
         avatar_small <- map["photo_50"]
         avatar_profile <- map["photo_200_orig"]
-        full_name = "\(first_name.lowercased()) \(last_name.lowercased())"
+        full_name = "\(last_name.lowercased()) \(first_name.lowercased())"
     }
 
 }

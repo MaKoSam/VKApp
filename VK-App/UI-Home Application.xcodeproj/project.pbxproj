@@ -23,10 +23,12 @@
 		046908B2232149EB00123222 /* nolike.png in Resources */ = {isa = PBXBuildFile; fileRef = 046908AE232149EB00123222 /* nolike.png */; };
 		04AB20E322CDE09900618D22 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB20E222CDE09900618D22 /* WKLoginViewController.swift */; };
 		04AB20E522CDE47300618D22 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AB20E422CDE47300618D22 /* WebKit.framework */; };
-		04ADD76A2327E7F50081250D /* RealmDatabaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */; };
+		04ADD76A2327E7F50081250D /* RealmDatabaseUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ADD7692327E7F50081250D /* RealmDatabaseUpload.swift */; };
 		04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F222DCA972000DB775 /* ProfilePageViewController.swift */; };
 		04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */; };
 		04C819F722DCAB38000DB775 /* ProfileHeadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */; };
+		04D7A037233F7A8000ADB41A /* PhotoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D7A036233F7A8000ADB41A /* PhotoCache.swift */; };
+		04D7A03A233F7F5300ADB41A /* RealmDatabaseDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D7A039233F7F5300ADB41A /* RealmDatabaseDownload.swift */; };
 		04D86B94232E0E3000FCB828 /* PhotoAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D86B93232E0E3000FCB828 /* PhotoAttachmentCell.swift */; };
 		04D86B96232E0E5200FCB828 /* LinkAttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D86B95232E0E5200FCB828 /* LinkAttachmentCell.swift */; };
 		04D86B98232E16F000FCB828 /* GroupsByIdClassStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D86B97232E16F000FCB828 /* GroupsByIdClassStructure.swift */; };
@@ -66,10 +68,12 @@
 		046908AE232149EB00123222 /* nolike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nolike.png; path = Icons/nolike.png; sourceTree = "<group>"; };
 		04AB20E222CDE09900618D22 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		04AB20E422CDE47300618D22 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseActions.swift; sourceTree = "<group>"; };
+		04ADD7692327E7F50081250D /* RealmDatabaseUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabaseUpload.swift; sourceTree = "<group>"; };
 		04C819F222DCA972000DB775 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		04C819F422DCA993000DB775 /* ProfilePageHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageHeadView.swift; sourceTree = "<group>"; };
 		04C819F622DCAB38000DB775 /* ProfileHeadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeadPhoto.swift; sourceTree = "<group>"; };
+		04D7A036233F7A8000ADB41A /* PhotoCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCache.swift; sourceTree = "<group>"; };
+		04D7A039233F7F5300ADB41A /* RealmDatabaseDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmDatabaseDownload.swift; path = Realm/RealmDatabaseDownload.swift; sourceTree = "<group>"; };
 		04D86B93232E0E3000FCB828 /* PhotoAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAttachmentCell.swift; sourceTree = "<group>"; };
 		04D86B95232E0E5200FCB828 /* LinkAttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinkAttachmentCell.swift; path = "/Users/mac/VK-GCD/VK-App/UI-Home Application/LinkAttachmentCell.swift"; sourceTree = "<absolute>"; };
 		04D86B97232E16F000FCB828 /* GroupsByIdClassStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsByIdClassStructure.swift; sourceTree = "<group>"; };
@@ -151,6 +155,23 @@
 			name = "Profile Page";
 			sourceTree = "<group>";
 		};
+		04D7A035233F7A3500ADB41A /* Cache  */ = {
+			isa = PBXGroup;
+			children = (
+				04D7A036233F7A8000ADB41A /* PhotoCache.swift */,
+			);
+			path = "Cache ";
+			sourceTree = "<group>";
+		};
+		04D7A038233F7EF700ADB41A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				04ADD7692327E7F50081250D /* RealmDatabaseUpload.swift */,
+				04D7A039233F7F5300ADB41A /* RealmDatabaseDownload.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
 		8B0959682243C41C00CABE05 /* News Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,10 +225,11 @@
 				8BB35768222CCED700B7792A /* Assets.xcassets */,
 				8BB3576A222CCED700B7792A /* LaunchScreen.storyboard */,
 				8BB3576D222CCED700B7792A /* Info.plist */,
+				04D7A035233F7A3500ADB41A /* Cache  */,
 				041A11D2231D1C9300D8B772 /* Start Page */,
 				0432803422D371DB000FEA78 /* ClassStructures */,
 				04578219233CE05D00B4F146 /* Server Connections */,
-				04ADD7692327E7F50081250D /* RealmDatabaseActions.swift */,
+				04D7A038233F7EF700ADB41A /* Realm */,
 				DBB263DB2240C23A00D864CD /* AudienceActivityView.swift */,
 				04C819F122DCA8F1000DB775 /* Profile Page */,
 				8B0959682243C41C00CABE05 /* News Page */,
@@ -390,6 +412,7 @@
 				8BB35762222CCED500B7792A /* AppDelegate.swift in Sources */,
 				04578218233CE05100B4F146 /* ConstructorURL.swift in Sources */,
 				04D86B94232E0E3000FCB828 /* PhotoAttachmentCell.swift in Sources */,
+				04D7A037233F7A8000ADB41A /* PhotoCache.swift in Sources */,
 				0432803322D36EEE000FEA78 /* GroupsClassStructure.swift in Sources */,
 				04C819F522DCA993000DB775 /* ProfilePageHeadView.swift in Sources */,
 				041A11D9231FDDCE00D8B772 /* UserPhotoView.swift in Sources */,
@@ -402,8 +425,9 @@
 				04D86B98232E16F000FCB828 /* GroupsByIdClassStructure.swift in Sources */,
 				8B26BB1722452EA400B08579 /* FriendsClassStructure.swift in Sources */,
 				04C819F322DCA972000DB775 /* ProfilePageViewController.swift in Sources */,
-				04ADD76A2327E7F50081250D /* RealmDatabaseActions.swift in Sources */,
+				04ADD76A2327E7F50081250D /* RealmDatabaseUpload.swift in Sources */,
 				0457821B233CE62200B4F146 /* StartModule.swift in Sources */,
+				04D7A03A233F7F5300ADB41A /* RealmDatabaseDownload.swift in Sources */,
 				22C20D29232774100051D13B /* RealmDataBaseStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

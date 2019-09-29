@@ -16,7 +16,7 @@ class StartModule {
         if let AccessToken = token {
             Session.instance.app_token = AccessToken
             print(AccessToken)
-            DispatchQueue.global(qos: .utility).async {
+            DispatchQueue.global(qos: .utility).sync {
                 self.ownerDownload()
                 self.friendsDownload()
                 self.groupsDownload()
@@ -31,8 +31,8 @@ class StartModule {
     private func ownerDownload(){
         ServerTusks.instance.downloadOwnerData(){
             [weak self] downloadedOwner in
-            DispatchQueue.global(qos: .background).async {
-                RealmDatabaseActions.instance.saveOwner(downloadedOwner)
+            DispatchQueue.global(qos: .default).async {
+                RealmDatabaseUpload.instance.saveOwner(downloadedOwner)
             }
         }
     }
@@ -40,8 +40,14 @@ class StartModule {
     func friendsDownload() {
         ServerTusks.instance.downloadFriendData(){
             [weak self] friendList in
-            DispatchQueue.global(qos: .background).async {
-                RealmDatabaseActions.instance.saveOwnerFriends(friendList)
+            DispatchQueue.global(qos: .default).async {
+                RealmDatabaseUpload.instance.saveOwnerFriends(friendList)
+                var photoService : PhotoCacheService?
+                for elements in friendList {
+                    if let imageURL = elements.avatar_small {
+                        photoService?.UpdatePhotoCaches(byUrl: imageURL)
+                    }
+                }
             }
         }
     }
@@ -49,10 +55,15 @@ class StartModule {
     func groupsDownload() {
         ServerTusks.instance.downloadGroupData(){
             [weak self] groupList in
-            DispatchQueue.global(qos: .background).async {
-                RealmDatabaseActions.instance.saveOwnerGroups(groupList)
+            DispatchQueue.global(qos: .default).async {
+                RealmDatabaseUpload.instance.saveOwnerGroups(groupList)
+                var photoService : PhotoCacheService?
+                for elements in groupList {
+                    photoService?.UpdatePhotoCaches(byUrl: elements.avatar)
+                }
             }
         }
     }
+    
     
 }

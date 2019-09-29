@@ -13,6 +13,7 @@ class FriendListViewController: UIViewController {
     var myFriends: FriendList? = FriendList([])
     var myFiltered: FriendList? = FriendList([])
     
+    
     @IBOutlet weak var FriendTable: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -143,17 +144,8 @@ extension FriendListViewController : UITableViewDataSource {
         newCell.friendLastName.text = currentSection[indexPath.row].last_name
         
         if let imageURL = currentSection[indexPath.row].avatar_small {
-            DispatchQueue.global(qos: .userInitiated).async {
-                let url = URL(string: imageURL)
-                do {
-                    let data = try Data(contentsOf: url!)
-                    DispatchQueue.main.async {
-                        newCell.friendPhotoContentView.image = UIImage(data: data)
-                    }
-                } catch {
-                    print(error)
-                }
-            }
+            var photoService : PhotoCacheService? = PhotoCacheService(container: FriendTable)
+            newCell.friendPhotoContentView.image = photoService?.photo(atIndexpath: indexPath, byUrl: imageURL)
         }
         
         return newCell

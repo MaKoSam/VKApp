@@ -14,6 +14,18 @@ class StartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+//        let friends = RealmDatabaseDownload.instance.friends()
+//
+//        DispatchQueue.global(qos: .default).async {
+//            var photoService : PhotoCacheService?
+//            print("im innnnn")
+//            for elements in friends {
+//                print("very inn")
+//                if let imageURL = elements.avatar_small {
+//                    photoService?.UpdatePhotoCaches(byUrl: imageURL)
+//                }
+//            }
+//        }
     }
     
     override func viewDidLoad() {
