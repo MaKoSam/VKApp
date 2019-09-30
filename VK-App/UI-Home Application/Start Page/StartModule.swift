@@ -42,11 +42,6 @@ class StartModule {
             [weak self] friendList in
             DispatchQueue.global(qos: .default).async {
                 RealmDatabaseUpload.instance.saveOwnerFriends(friendList)
-                for elements in friendList {
-                    if let imageURL = elements.avatar_small {
-                        PhotoCacheService.instance.UpdatePhotoCaches(byUrl: imageURL)
-                    }
-                }
             }
         }
     }
@@ -56,9 +51,6 @@ class StartModule {
             [weak self] groupList in
             DispatchQueue.global(qos: .default).async {
                 RealmDatabaseUpload.instance.saveOwnerGroups(groupList)
-                for elements in groupList {
-                    PhotoCacheService.instance.UpdatePhotoCaches(byUrl: elements.avatar)
-                }
             }
         }
     }
