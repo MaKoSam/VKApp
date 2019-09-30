@@ -40,6 +40,7 @@ extension NewsViewController : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = NewsTableView.dequeueReusableCell(withIdentifier: "textPost", for: indexPath) as! TextPostCell
+        var photoService = PhotoCacheService(container: NewsTableView)
         
         DispatchQueue.global(qos: .userInteractive).async {
             if self.newsPosts[indexPath.row].source_id > 0 {
@@ -47,47 +48,23 @@ extension NewsViewController : UITableViewDataSource {
                     ServerTusks.instance.downloadUsersData("\(self.newsPosts[indexPath.row].source_id)") {
                         [weak self] downloadedUser in
                         if let postOwner = downloadedUser.first {
-                            //Download User Avatar
-                            DispatchQueue.global(qos: .utility).async {
-                                if let imageURL = postOwner.avatar_small {
-                                    let url = URL(string: imageURL)
-                                    do {
-                                        let data = try Data(contentsOf: url!)
-                                        DispatchQueue.main.async {
-                                            newCell.UserAvatar.image = UIImage(data: data)
-                                        }
-                                    } catch {
-                                        print(error)
-                                    }
-                                }
-                            }
-                            //Set User Name
                             DispatchQueue.main.async {
                                 newCell.UserName.text = postOwner.full_name
+                                if let imageURL = postOwner.avatar_small {
+                                    newCell.UserAvatar.image = photoService.photo(atIndexpath: indexPath, byUrl: imageURL)
+                                }
                             }
                         }
                     }
                 }
             } else {
-                DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.global(qos: .userInteractive).async {
                     ServerTusks.instance.downloadGroupById("\((-1) * self.newsPosts[indexPath.row].source_id)") {
                         [weak self] downloadedGroup in
                         if let postOwner = downloadedGroup.first {
-                            //Download Group Avatar
-                            DispatchQueue.global(qos: .utility).async {
-                                let url = URL(string: postOwner.avatar)
-                                do {
-                                    let data = try Data(contentsOf: url!)
-                                    DispatchQueue.main.async {
-                                        newCell.UserAvatar.image = UIImage(data: data)
-                                    }
-                                } catch {
-                                    print(error)
-                                }
-                            }
-                            //Set Group Name
                             DispatchQueue.main.async {
                                 newCell.UserName.text = postOwner.name
+                                newCell.UserAvatar.image = photoService.photo(atIndexpath: indexPath, byUrl: postOwner.avatar)
                             }
                         }
                     }
@@ -95,7 +72,7 @@ extension NewsViewController : UITableViewDataSource {
             }
             
             DispatchQueue.main.async {
-                newCell.PostText.text = self.newsPosts[indexPath.row].text + " " + self.newsPosts[indexPath.row].date
+                newCell.PostText.text = self.newsPosts[indexPath.row].text
                 newCell.AttachedFiles = self.newsPosts[indexPath.row].attachment
             }
             

@@ -12,8 +12,6 @@ import UIKit
 
 class PhotoCacheService {
     
-    static let instance = PhotoCacheService(container: UITableView())
-    
     
     private let cacheLifeTime: TimeInterval = 30 * 24 * 60 * 60
     private static let pathName: String = {
