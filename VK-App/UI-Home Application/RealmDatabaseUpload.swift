@@ -19,10 +19,17 @@ class RealmDatabaseUpload {
             let oldOwner = realm.objects(Owner.self)
             if let exictingOwner = Array(oldOwner).first{
                 if !self.equalOwner(user, exictingOwner) {
-                    realm.beginWrite()
-                    realm.delete(oldOwner)
-                    realm.add(user)
-                    try realm.commitWrite()
+                    try realm.write {
+                        exictingOwner.first_name = user.first_name
+                        exictingOwner.last_name = user.last_name
+                        exictingOwner.full_name = user.full_name
+                        exictingOwner.home_town = user.home_town
+                        exictingOwner.phone = user.phone
+                        exictingOwner.bdate = user.bdate
+                        exictingOwner.sex = user.sex
+                        exictingOwner.status = user.status
+                        exictingOwner.bdate_visibility = user.bdate_visibility
+                    }
                 }
             } else {
                 realm.beginWrite()
@@ -38,18 +45,22 @@ class RealmDatabaseUpload {
         do {
             let realm = try Realm()
             let owner = realm.objects(Owner.self)
+            
             if let user = Array(owner).first {
                 for elements in friendList {
                     let search = realm.objects(User.self).filter("id == %@", elements.id)
                     if let found = Array(search).first {
                         if !self.equalFriends(found, elements){
-                            print("deleting ", found.full_name, " uploading ", elements.full_name)
-                            realm.beginWrite()
-                            realm.delete(search)
-                            try realm.commitWrite()
+                            
+                            print("editing ", found)
                             
                             try realm.write {
-                                user.friends.append(elements)
+                                found.first_name = elements.first_name
+                                found.last_name = elements.last_name
+                                found.full_name = elements.full_name
+                                found.avatar_profile = elements.avatar_profile
+                                found.avatar_small = elements.avatar_small
+                                found.status = elements.status
                             }
                         }
                     } else {
@@ -73,11 +84,9 @@ class RealmDatabaseUpload {
                     let search = realm.objects(Group.self).filter("id == %@", elements.id)
                     if let found = Array(search).first {
                         if !self.equalGroups(found, elements) {
-                            realm.beginWrite()
-                            realm.delete(search)
-                            try realm.commitWrite()
                             try realm.write {
-                                user.communities.append(elements)
+                                found.name = elements.name
+                                found.avatar = elements.avatar
                             }
                         }
                     } else {

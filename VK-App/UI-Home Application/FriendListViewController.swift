@@ -12,28 +12,20 @@ import RealmSwift
 class FriendListViewController: UIViewController {
     var myFriends: FriendList? = FriendList([])
     var myFiltered: FriendList? = FriendList([])
-    
-    
+    let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var FriendTable: UITableView!
     
-    let searchController = UISearchController(searchResultsController: nil)
     
-    func loadDataFromDataBase(){
-        do {
-            let realm = try Realm()
-            let preloadedList = realm.objects(User.self)
-            var arrayList = Array(preloadedList)
-            self.myFriends = FriendList(arrayList)
-        } catch {
-            print(error)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        myFriends = FriendList(RealmDatabaseDownload.instance.friends())
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadDataFromDataBase()
         
         FriendTable.dataSource = self
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for a friend"
@@ -41,6 +33,7 @@ class FriendListViewController: UIViewController {
         definesPresentationContext = true
     }
 }
+
 
 extension FriendListViewController : UISearchResultsUpdating {
     func isFiltering() -> Bool {
@@ -52,14 +45,7 @@ extension FriendListViewController : UISearchResultsUpdating {
     }
 
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        do {
-            let realm = try Realm()
-            let filteredList = realm.objects(User.self).filter("full_name contains %@", searchText.lowercased())
-            let arrayList = Array(filteredList)
-            myFiltered = FriendList(arrayList)
-        } catch {
-            print(error)
-        }
+        myFiltered = FriendList(RealmDatabaseDownload.instance.filterFriends(by: searchText))
         FriendTable.reloadData()
     }
 
@@ -69,10 +55,7 @@ extension FriendListViewController : UISearchResultsUpdating {
 }
 
 
-
-
 extension FriendListViewController : UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering() {
             guard let activeHeaders = myFiltered?.headers else {

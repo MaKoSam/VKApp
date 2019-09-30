@@ -30,19 +30,11 @@ class TextPostCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         PostPhotoCollection.dataSource = self
         PostCoverView.layer.cornerRadius = CGFloat(20)
         UserNameView.layer.cornerRadius = CGFloat(10)
-    }
-    
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
@@ -54,28 +46,22 @@ extension TextPostCell : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let defaultCell = PostPhotoCollection.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotoAttachmentCell
+        let photoService = PhotoCacheService(container: PostPhotoCollection)
         
         if AttachedFiles[indexPath.row].type == "photo" {
             let newCell = PostPhotoCollection.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotoAttachmentCell
             if let photoAttached = AttachedFiles[indexPath.row].photo {
                 for elements in photoAttached.imageURL {
                     if elements.type == "x" {
-                        DispatchQueue.global(qos: .utility).async {
-                            let url = URL(string: elements.URL)
-                            do {
-                                let data = try Data(contentsOf: url!)
-                                DispatchQueue.main.async {
-                                    newCell.imageView.image = UIImage(data: data)
-                                }
-                            } catch {
-                                print(error)
-                            }
+                        DispatchQueue.main.async {
+                            newCell.imageView.image = photoService.photo(atIndexpath: indexPath, byUrl: elements.URL)
                         }
                     }
                 }
             }
             return newCell
-        } else
+        }
+        
         if AttachedFiles[indexPath.row].type == "link" {
             let newCell = PostPhotoCollection.dequeueReusableCell(withReuseIdentifier: "link", for: indexPath) as! LinkAttachmentCell
             if let linkAttached = AttachedFiles[indexPath.row].link {
@@ -84,26 +70,16 @@ extension TextPostCell : UICollectionViewDataSource {
                 }
                 if let photoCover = linkAttached.coverPhoto {
                     for elements in photoCover.imageURL{
-                        if elements.type == "x" {
-                            DispatchQueue.global(qos: .utility).async {
-                                let url = URL(string: elements.URL)
-                                do {
-                                    let data = try Data(contentsOf: url!)
-                                    DispatchQueue.main.async {
-                                        newCell.linkImage.image = UIImage(data: data)
-                                    }
-                                } catch {
-                                    print(error)
-                                }
-                            }
+                        DispatchQueue.main.async {
+                            newCell.linkImage.image = photoService.photo(atIndexpath: indexPath, byUrl: elements.URL)
                         }
                     }
                 }
             }
             return newCell
-        } else {
-            return defaultCell
         }
+        
+        return defaultCell
     }
     
     

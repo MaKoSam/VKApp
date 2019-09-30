@@ -23,5 +23,26 @@ class RealmDatabaseDownload {
         }
         return []
     }
-
+    
+    func filterFriends(by search: String) -> [User] {
+        do {
+            let realm = try Realm()
+            let filteredList = realm.objects(User.self).filter("full_name contains %@", search.lowercased())
+            return Array(filteredList)
+        } catch {
+            print(error)
+        }
+        return []
+    }
+    
+    func groups() -> [Group] {
+        do {
+            let realm = try Realm()
+            let preloadedList = realm.objects(Group.self)
+            return Array(preloadedList)
+        } catch {
+            print(error)
+        }
+        return []
+    }
 }

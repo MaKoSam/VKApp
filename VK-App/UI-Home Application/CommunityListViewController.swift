@@ -10,28 +10,17 @@ import UIKit
 import RealmSwift
 
 class CommunityListViewController: UIViewController {
-    
     @IBOutlet weak var CommunityTable: UITableView!
     var myGroups : [Group] = []
     
-    
-    func loadDataFromDataBase(){
-        do {
-            let realm = try Realm()
-            let preloadedList = realm.objects(Group.self)
-            myGroups = Array(preloadedList)
-        } catch {
-            print(error)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        myGroups = RealmDatabaseDownload.instance.groups()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDataFromDataBase()
         CommunityTable.dataSource = self
-        
-        
     }
 }
 
@@ -43,8 +32,8 @@ extension CommunityListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = CommunityTable.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! CommunityTableViewCell
-        newCell.CommunityName.text = myGroups[indexPath.row].name
         let photoService = PhotoCacheService(container: CommunityTable)
+        newCell.CommunityName.text = myGroups[indexPath.row].name
         newCell.CommunityPhoto.image = photoService.photo(atIndexpath: indexPath, byUrl: myGroups[indexPath.row].avatar)
         return newCell
     }
@@ -55,5 +44,4 @@ extension CommunityListViewController : UITableViewDataSource {
             self.CommunityTable.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
 }

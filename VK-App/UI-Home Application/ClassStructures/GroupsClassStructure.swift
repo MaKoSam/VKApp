@@ -36,6 +36,10 @@ class Group: Object, Mappable{
     @objc dynamic var name: String = ""
     @objc dynamic var avatar: String = ""
     
+    override static func primaryKey()-> String? {
+        return("id")
+    }
+    
     required convenience init(map: Map) {
         self.init()
         self.mapping(map: map)

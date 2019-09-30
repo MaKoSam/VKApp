@@ -29,6 +29,9 @@ class User: Object, Mappable{
     @objc dynamic var avatar_small: String? = nil
     @objc dynamic var avatar_profile: String? = nil
     
+    override static func primaryKey()-> String? {
+        return("id")
+    }
     
     required convenience init(map: Map) {
         self.init()
